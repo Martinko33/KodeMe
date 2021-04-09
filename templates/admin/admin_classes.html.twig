@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    Administrator classes
+{% endblock title %}
+
+
+{% block main %}
+    <div class="container-fluid">
+        <div>
+            <h1 class="text-center bg-primary p-5 text-white"> Page Admin Cours</h1>
+            <div class="">
+                <a href="{{ path("display_support") }}"> > Vers page Admin Supports </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="insert-cours d-flex m-5 justify-content-around">
+                <div>
+                    <a href="{{ path("admin_classes_insert") }}">Insert nouvelle Cours </a>
+                </div>
+                <div>
+                    <a href="{{ path("admin_support_insert") }}">Insert tes support pour Cours</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            {% for class in classes %}
+                <div class="d-flex bg-light m-3" >
+                    <div class="d-flex m-5 align-items-center ">
+                        <div class="" >
+                            {% if class.icon %}
+                                <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}" class="image bg-black" style="width: 100px" >
+                            {% endif %}
+                        </div>
+                        <div class="ms-5" >
+                            <h2 class="">{{ class.name }}</h2>
+                        </div>
+                        <div class="ms-5 ">
+                            <p>{{ class.description }}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center ms-auto p-3 me-3 ">
+                        <a href="{{ path("admin_classes_update",{"id" :class.id}) }}"><img src="../assets/media/icon/updated.png" alt="" class="width50 me-4"></a>
+                        <a href="{{ path("admin_classes_delete",{"id" :class.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a><br>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock main %}

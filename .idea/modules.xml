@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CodeMe.iml" filepath="$PROJECT_DIR$/.idea/CodeMe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../symfony/premier/.idea/premier.iml" filepath="$PROJECT_DIR$/../symfony/premier/.idea/premier.iml" />
+    </modules>
+  </component>
+</project>
