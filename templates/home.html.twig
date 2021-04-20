@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+    <h1>Bienvenue</h1>
+
+    <div class="">
+        {% for class in classes %}
+
+            <div class="">
+                {# j'ai fais join avec deux table dans la entity articles et ici je le rappel par son nom #}
+
+
+{#                <a href="{{ path("display_artikl",{'id' : artikl.id}) }}">#}
+{#                    <img src="{{ artikl.image }}" alt="{{ artikl.title }}" class="image" >#}
+                    <h2>{{ class.name }}</h2>
+                    <p>{{ class.description }}</p>
+                    <span>{{ class.price}}</span>
+{#                </a>#}
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock main %}

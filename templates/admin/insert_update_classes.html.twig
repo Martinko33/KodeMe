@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "admin/base_admin.html.twig" %}
 {% block title %}
     Administrator Insert/Update
 {% endblock title %}
@@ -71,6 +71,22 @@
         <div>
             {{ form_row(formClassView.icon) }}
         </div>
+
+        <div class="row justify-content-around mb-5">
+            <div class="col-5">
+                <div class="row">
+                    <div class="fw-bold text-center fs-3 col-10">
+                        <h3>{{ form_label(formClassView.bg_color) }}</h3>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class=" ">
+                        {{ form_widget(formClassView.bg_color)  }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {#
         <div class="row justify-content-around mb-5">
             <div class="col-5">

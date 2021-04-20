@@ -50,6 +50,11 @@ class Classes
      */
     private $supports;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bg_color;
+
     public function __construct()
     {
         $this->supports = new ArrayCollection();
@@ -152,6 +157,18 @@ class Classes
                 $support->setClasses(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBgColor(): ?string
+    {
+        return $this->bg_color;
+    }
+
+    public function setBgColor(?string $bg_color): self
+    {
+        $this->bg_color = $bg_color;
 
         return $this;
     }

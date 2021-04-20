@@ -1,17 +1,10 @@
-{% extends "base.html.twig" %}
+{% extends "admin/base_admin.html.twig" %}
 {% block title %}
     Administrator support
 {% endblock title %}
 
-
-
 {% block main %}
-    <div>
-        <h1 class="text-center bg-primary p-5 text-white"> Page Admin Support de Cours</h1>
-        <div class="">
-            <a href="{{ path("display_classes") }}"> < Vers page Admin Classes </a>
-        </div>
-    </div>
+
     <div class="row justify-content-around">
         <div class="insert-cours d-flex align-items-center col-md-5 m-3 flex-column align-items-start">
             <div class="d-flex align-items-start my-5">

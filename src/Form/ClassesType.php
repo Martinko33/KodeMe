@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Classes;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,6 +19,7 @@ class ClassesType extends AbstractType
             ->add('time')
             ->add('description')
             ->add('price')
+            ->add('bg_color', ColorType::class)
             ->add('submit',SubmitType::class)
             ->add('icon',FileType::class, [
                 'label' => 'icon',

@@ -6,22 +6,14 @@
     <meta name="description" content="Cours video de informatique en ligne, Formation par la video"/>
     <meta name="keywords" content="Language,Developement, HTML,CSS, JavaScript, Python"/>
     <meta name="author" content="Martin"/>
-    <title>{% block title %}Cours en ligne{% endblock title %}</title>
+    <title>{% block title %}Page Admin{% endblock title %}</title>
     <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/admin_style.css') }}">
 </head>
 <body>
-<header>
-    <ul>
-        <li><a href="{{ path("page_home") }}">home</a></li>
-        {% if app.user %}
-            <li><a href="{{ path("app_logout") }}"><i class="bi bi-box-arrow-in-right fs-2"></i></a></li>
-        {% else %}
-            <li><a href="{{ path("app_login") }}"><i class="bi bi-person-circle fs-2"></i></a></li>
-        {% endif %}
-    </ul>
-</header>
+    <header>
+            <h1 class="text-center p-5 text-white header-sidebar">Administration</h1>
+    </header>
 <main>
     <div>
         {% for message in app.flashes('success') %}
@@ -31,10 +23,22 @@
         {% endfor %}
 
     </div>
-    {% block main %}
-    {% endblock main %}
+    <div class="sidebar">
+        <a href="#" class="link text">Classes</a>
+        <a href="#" class="link text">Support</a>
+        <a href="#" class="link text">Login Customers</a>
+        <a href="#" class="link text">Login Admin</a>
+        <a href="#" class="link text">Evenement</a>
+        <a href="#" class="link text"></a>
+    </div>
+    <div>
+        {% block main %}
+        {% endblock main %}
+    </div>
+
 </main>
 <footer></footer>
 {% block script_video %}{% endblock script_video %}
+<script src="{{ asset('assets/js/admin_script.js') }}"></script>
 </body>
 </html>
