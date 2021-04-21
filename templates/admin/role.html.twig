@@ -1,32 +1,36 @@
+{% extends "admin/base_admin.html.twig" %}
 
+{% block header_admin %}
+    <h1 class="text-center p-2 text-white bg-noir">Utilisateur</h1>
+{% endblock header_admin %}
+{% block main %}
     <section>
         <table>
             <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Date de naissance</th>
-                <th>Role</th>
+                <th class="text-center">Nom</th>
+                <th class="text-center">Prenom</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Date de naissance</th>
+                <th class="text-center">Update Role</th>
+                <th class="text-center">Supprimé User</th>
             </tr>
 
         <!-- boucle for pour afficher mes usagés -->
         {% for user in users %}
             <!-- afficher le reste des données -->
             <tr>
-                <td>{{ user.name }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.date |date("d.M.Y")}}</td>
-                <td>{% for role in user.roles %}
-                    {{ role.roles }}
-                    {% endfor %}</td>
-                <td>
+                <td class="text-center">{{ user.name }}</td>
+                <td class="text-center">{{ user.firstname }}</td>
+                <td class="text-center">{{ user.email }}</td>
+                <td class="text-center">{{ user.date |date("d.M.Y")}}</td>
+{#                <td>{{ user.roles }}</td>#}
+                <td class="text-center">
                     <!-- début du formulaire / en méthode post / action => a envoyer a cette function -->
                     <form method="post" action="{{ path('roleUpdate') }}">
                     <!-- input hidden ( caché ) pour envoyé en value l'id de l'usagé concerné -->
                         <input type="hidden" name="id" value="{{ user.id }}">
                     <!-- input select pour choisir le nouveau role -->
-                        <label for="role">Choose a role:</label>
+
                         <select name="role" id="role">
                             <option value="">--Please choose a role--</option>
                             <option value="admin">admin</option>
@@ -37,8 +41,13 @@
                         <input type="submit">
                     </form>
                 </td>
+                <td class="text-center">
+                    <a href="{{ path("userDelete",{"id" :user.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a>
+                </td>
             </tr>
 
         {% endfor %}
         </table>
     </section>
+
+{% endblock main %}

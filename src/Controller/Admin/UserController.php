@@ -13,21 +13,21 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/admin")
  */
-class adminController extends AbstractController
+class UserController extends AbstractController
 {
-    /**
-     * @Route("/", name="adminHome")
-     */
-    public function adminHome()
-    {
+//    /**
+//     * @Route("/user", name="adminUser")
+//     */
+//    public function adminUser()
+//    {
+//
+//    }
 
-    }
-
     /**
-     * @Route("/role", name="role")
+     * @Route("/user", name="role")
      */
     //function d'affichage de mes usagés
-    public function role(UserRepository $repository)
+    public function roleUser(UserRepository $repository)
     {
         $users = $repository->findAll();
 
@@ -37,7 +37,7 @@ class adminController extends AbstractController
     }
 
     /**
-     * @Route("/roleUpdate", name="roleUpdate")
+     * @Route("/user/update", name="roleUpdate")
      */
     public function roleUpdate( UserRepository $repository, Request $request, EntityManagerInterface $entityManager)
     {
@@ -58,6 +58,28 @@ class adminController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
+        $this->addFlash('success','Le User '.$user->getEmail().' était bien modifié!');
         return $this->redirectToRoute('role');
     }
+
+    /**
+     * @Route("/delete/user/{id}", name="userDelete")
+     */
+    public function userDelete(
+        $id,
+        EntityManagerInterface $entityManager,
+        UserRepository $repository)
+    {
+        $user = $repository->find($id);
+        $entityManager ->remove($user);
+        $entityManager ->flush($user);
+
+        $this->addFlash('success','Le User '.$user->getEmail().' était bien supprimé!');
+        return $this->redirectToRoute('role');
+    }
+
+
+
+
 }
+
