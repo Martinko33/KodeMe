@@ -19,7 +19,7 @@ class ClassesType extends AbstractType
             ->add('time')
             ->add('description')
             ->add('price')
-            ->add('bg_color', ColorType::class)
+            ->add('color', ColorType::class)
             ->add('submit',SubmitType::class)
             ->add('icon',FileType::class, [
                 'label' => 'icon',

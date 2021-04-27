@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block barHeader %}
+    class="page-cours-image"
+{% endblock barHeader %}
+
+{% block noticeText %}
+    <div class="notice-text">
+        <p>Notre cours online</p>
+        <p>Choisi ton Cour qui te boost</p>
+    </div>
+{% endblock noticeText %}
+
+{% block main %}
+    <nav >
+        <ul class="display-flex jus-con-bet nav-cours">
+            <li><a href="" class="prim-color">Tous</a></li>
+            <li><a href="" class="prim-color">Gratuit</a></li>
+            <li><a href="" class="prim-color">Developpement</a></li>
+            <li><a href="" class="prim-color">Design</a></li>
+            <li><a href="" class="prim-color">Data</a></li>
+            <li><a href="" class="prim-color">Photo & Video</a></li>
+            <li><a href="" class="prim-color">Office</a></li>
+            <li><a href="" class="prim-color">Marketing</a></li>
+            <li><a href="" class="prim-color">Les enfant</a></li>
+            <li><a href="" class="prim-color">Systéme & Réseaux</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div>
+            {% for class in classes %}
+                <div>
+                    <a href="">
+                        <div class="class-wrapper" style="background-color: {{ class.color}}">
+                            <p>{{ class.name }}</p>
+                            <p>{{ class.description }}</p>
+                            <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}"
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock main %}

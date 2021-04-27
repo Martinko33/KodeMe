@@ -53,7 +53,7 @@ class Classes
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $bg_color;
+    private $color;
 
     public function __construct()
     {
@@ -161,14 +161,14 @@ class Classes
         return $this;
     }
 
-    public function getBgColor(): ?string
+    public function getColor(): ?string
     {
-        return $this->bg_color;
+        return $this->color;
     }
 
-    public function setBgColor(?string $bg_color): self
+    public function setColor(?string $color): self
     {
-        $this->bg_color = $bg_color;
+        $this->color = $color;
 
         return $this;
     }

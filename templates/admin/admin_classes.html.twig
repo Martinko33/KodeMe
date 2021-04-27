@@ -26,6 +26,7 @@
                         <th class="">Icone</th>
                         <th class="">Nom</th>
                         <th class="">Description</th>
+                        <th class="">Color</th>
                         <th class="">Update</th>
                         <th class="">Delete</th>
                     </tr>
@@ -36,6 +37,7 @@
                                 {% endif %}</td>
                             <td>{{ class.name }}</td>
                             <td>{{ class.description }}</td>
+                            <td>{{ class.color}}</td>
                             <td><a href="{{ path("admin_classes_update",{"id" :class.id}) }}"><img src="../assets/media/icon/updated.png" alt="" class="width50 me-4"></a></td>
                             <td><a href="{{ path("admin_classes_delete",{"id" :class.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a></td>
                         </tr>

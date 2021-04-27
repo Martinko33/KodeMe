@@ -58,7 +58,7 @@ class UserController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $this->addFlash('success','Le User '.$user->getEmail().' était bien modifié!');
+        $this->addFlash('success','Le User '.$user->getFirstname().' '.$user->getName() .' était bien modifié!');
         return $this->redirectToRoute('role');
     }
 
@@ -74,7 +74,7 @@ class UserController extends AbstractController
         $entityManager ->remove($user);
         $entityManager ->flush($user);
 
-        $this->addFlash('success','Le User '.$user->getEmail().' était bien supprimé!');
+        $this->addFlash('success','Le User '.$user->getFirstname().' '.$user->getName() .' était bien supprimé!');
         return $this->redirectToRoute('role');
     }
 

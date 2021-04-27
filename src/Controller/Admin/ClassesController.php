@@ -23,7 +23,8 @@ class ClassesController extends AbstractController
         $classes = $classesRepository->findAll();
 
         return $this->render('admin/admin_classes.html.twig',[
-            'classes' => $classes
+            'classes' => $classes,
+
         ]);
     }
 
@@ -84,7 +85,8 @@ class ClassesController extends AbstractController
         $id,
         ClassesRepository $classesRepository,
         EntityManagerInterface $entityManager,
-        Request $request
+        Request $request,
+        SluggerInterface $slugger
     )
     {
         $class = $classesRepository->find($id);
@@ -93,6 +95,24 @@ class ClassesController extends AbstractController
         $formClass->handleRequest($request);
         if($formClass->isSubmitted() && $formClass->isValid()) {
             $class = $formClass->getData();
+            $iconFile = $formClass->get('icon')->getData();
+
+            if ($iconFile){
+                $orgFilename= pathinfo($iconFile->getClientOriginalName(),PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($orgFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$iconFile->guessExtension();
+
+                try {
+                    $iconFile->move(
+                        $this->getParameter('icon_directory'),
+                        $newFilename
+                    );
+                }catch (FileException $e){
+
+                }
+                $class->setIcon($newFilename);
+
+            }
 
             $entityManager ->persist($class);
             $entityManager ->flush();

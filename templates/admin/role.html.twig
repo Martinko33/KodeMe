@@ -11,6 +11,7 @@
                 <th class="text-center">Prenom</th>
                 <th class="text-center">Email</th>
                 <th class="text-center">Date de naissance</th>
+                <th class="text-center">Role</th>
                 <th class="text-center">Update Role</th>
                 <th class="text-center">Supprimé User</th>
             </tr>
@@ -23,7 +24,7 @@
                 <td class="text-center">{{ user.firstname }}</td>
                 <td class="text-center">{{ user.email }}</td>
                 <td class="text-center">{{ user.date |date("d.M.Y")}}</td>
-{#                <td>{{ user.roles }}</td>#}
+                <td class="text-center">{{ user.roles|json_encode |trim('[],""')}}</td>
                 <td class="text-center">
                     <!-- début du formulaire / en méthode post / action => a envoyer a cette function -->
                     <form method="post" action="{{ path('roleUpdate') }}">
@@ -32,10 +33,10 @@
                     <!-- input select pour choisir le nouveau role -->
 
                         <select name="role" id="role">
-                            <option value="">--Please choose a role--</option>
-                            <option value="admin">admin</option>
-                            <option value="user">user</option>
-                            <option value="teacher">teacher</option>
+                            <option value="">--Choisir la role--</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">Utilisateur</option>
+                            <option value="teacher">Professeur</option>
                         </select>
                     <!-- envoi -->
                         <input type="submit">
