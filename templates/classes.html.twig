@@ -14,16 +14,10 @@
 {% block main %}
     <nav >
         <ul class="display-flex jus-con-bet nav-cours">
-            <li><a href="" class="prim-color">Tous</a></li>
-            <li><a href="" class="prim-color">Gratuit</a></li>
-            <li><a href="" class="prim-color">Developpement</a></li>
-            <li><a href="" class="prim-color">Design</a></li>
-            <li><a href="" class="prim-color">Data</a></li>
-            <li><a href="" class="prim-color">Photo & Video</a></li>
-            <li><a href="" class="prim-color">Office</a></li>
-            <li><a href="" class="prim-color">Marketing</a></li>
-            <li><a href="" class="prim-color">Les enfant</a></li>
-            <li><a href="" class="prim-color">Systéme & Réseaux</a></li>
+            <li><a href="{{ path("page_cours") }}" class="prim-color">Tous</a></li>
+            {% for theme in themes %}
+                <li><a href="{{ path("page_cours_select", {'id':theme.id}) }}" class="prim-color">{{ theme.name }}</a></li>
+            {% endfor %}
         </ul>
     </nav>
 

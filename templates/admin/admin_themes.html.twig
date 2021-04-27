@@ -1,0 +1,38 @@
+{% extends "admin/base_admin.html.twig" %}
+{% block title %}
+    Administrator thémes
+{% endblock title %}
+
+{% block header_admin %}
+    <div>
+        <h1 class="text-center p-2 text-white bg-noir">Thémes</h1>
+    </div>
+{% endblock header_admin %}
+
+{% block main %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="insert-cours d-flex my-3 me-5 justify-content-end">
+                <div>
+                    <a href="{{ path("admin_themes_insert") }}">Insert nouvelle Théme </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <section>
+                <table>
+                    <tr class="">
+                        <th class="">Nom</th>
+                    </tr>
+                    {% for theme in themes %}
+                        <tr class="bg-light">
+                            <td>{{ theme.name }}</td>
+                            <td><a href="{{ path("admin_themes_update",{"id" :theme.id}) }}"><img src="../assets/media/icon/updated.png" alt="" class="width50 me-4"></a></td>
+                            <td><a href="{{ path("admin_themes_delete",{"id" :theme.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </section>
+        </div>
+    </div>
+{% endblock main %}

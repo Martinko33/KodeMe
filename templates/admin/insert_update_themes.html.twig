@@ -1,0 +1,36 @@
+{% extends "admin/base_admin.html.twig" %}
+{% block title %}
+    Administrator Insert/Update Themes
+{% endblock title %}
+
+{% block header_admin %}
+    <h1 class="text-center p-2 text-white bg-noir">Update Themes</h1>
+{% endblock header_admin %}
+
+{% block main %}
+    {{form_start(formThemeView)}}
+<div class="container-fluid ">
+    <div class="row justify-content-around mb-5 pt-5 ">
+        <div class="col-5">
+            <div class="row">
+                <div class="fw-bold text-center fs-3 col-10">
+                    <h3>{{ form_label(formThemeView.name) }}</h3>
+                </div>
+            </div>
+            <div class="row">
+                {# form_errors me sort les error fait par formulaire #}
+                <div class="bg-danger text-white text-center ">
+                    {{ form_errors(formThemeView.name) }}
+                </div>
+                <div class="border border-4 border border-danger p-0 ">
+                    {{ form_widget(formThemeView.name, {'attr': {'class': 'full-width','placeholder': 'nom de theme!!'}}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="submit-form-article d-flex justify-content-center pb-5">
+        {{ form_widget(formThemeView.submit) }}
+    </div>
+</div>
+    {{ form_end(formThemeView) }}
+{% endblock main %}

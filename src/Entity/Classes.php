@@ -55,6 +55,11 @@ class Classes
      */
     private $color;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Theme::class, inversedBy="classes")
+     */
+    private $themes;
+
     public function __construct()
     {
         $this->supports = new ArrayCollection();
@@ -169,6 +174,18 @@ class Classes
     public function setColor(?string $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getThemes(): ?Theme
+    {
+        return $this->themes;
+    }
+
+    public function setThemes(?Theme $themes): self
+    {
+        $this->themes = $themes;
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Classes;
+use App\Entity\Theme;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -26,7 +28,10 @@ class ClassesType extends AbstractType
                 'mapped' => false,
                 'required' => false
             ])
-
+            ->add('themes', EntityType::class, [
+                'class' => Theme::class,
+                'choice_label' => 'name'
+            ])
         ;
     }
 
