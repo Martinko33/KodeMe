@@ -1,0 +1,86 @@
+{% extends "base.html.twig" %}
+
+{% block noticeText %}
+    {% for class in class %}
+        <div class="sous-header-class" style="background-color:{{ class.color}} ">
+            <div class="notice-text">
+                <span>{{ class.name }}</span>
+            </div>
+            <div>
+                <a href="{{ path("page_cours") }}"><strong><</strong> Retour au Cours</a>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock noticeText %}
+
+{% block main %}
+    <div class="">
+        <h2></h2>
+        <video controls class="video_position videoSource">
+            <source src="{{ asset('uploads/video/videoplayback-6066ec5ce05d8.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+{#    {% for support in supports %}#}
+{#        {% if support.classes %}#}
+{#            {% if support.classes.name %}#}
+{#                {% if supportName is not defined or supportName != support.classes.name %}#}
+{#                    {% for support in support.classes.supports %}#}
+{#                        {% if support.video %}#}
+{#                            <div class="linkVideo container-video ">#}
+{#                                <a href="{{ asset('uploads/video/' ~ support.video) }}" >#}
+{#                                    <h3 class="black-color">{{ support.titre }}</h3>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                {% endif %}#}
+{#                {% set supportName = support.classes.name %}#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+
+    {% for class in class %}
+        {% for support in class.supports %}
+            {% if support.video %}
+                <div class="linkVideo container-video ">
+                    <a href="{{ asset('uploads/video/' ~ support.video) }}" >
+                        <h3 class="black-color">{{ support.titre }}</h3>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+{% endblock main %}
+
+{% block script_video %}
+    <script>
+        let video = document.querySelector('video');
+        console.log(video);
+        let videoSrc = document.querySelector('video source');
+        const videos = document.querySelectorAll('.linkVideo a');
+
+        videos.forEach(linkVideo => {
+            linkVideo.addEventListener('click', function(e) {
+                e.preventDefault();
+                video.pause();
+                video.currentTime = 0;
+                let src = linkVideo.getAttribute('href');
+                console.log(src)
+                videoSrc.setAttribute('src', src);
+                video.load();
+                video.play();
+            })
+                // .then(_ => {
+                //     // Video playback started )
+                // })
+                // .catch(e => {
+                //     // Video playback failed
+                // })
+        })
+
+    </script>
+
+{% endblock script_video %}

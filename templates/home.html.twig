@@ -9,14 +9,16 @@
     class="page-home-image"
 {% endblock barHeader %}
 {% block noticeText %}
-<div class="notice-text">
-    <h1>Change ta <span class="grey-color">passion</span></h1>
-    <h1>Change ton <span class="grey-color">travail</span></h1>
-    <h1>Change ta <span class="grey-color">vie</span></h1>
-</div>
-<div class="notice-button-first">
-    <a href="">Apprends à coder</a>
-</div>
+    <div class="box-header ">
+        <div class="notice-text mb40">
+            <h1 class="rotate1 text-center">Change ta <span class="grey-color">passion</span></h1>
+            <h1 class="rotate2 text-center">Change ton <span class="grey-color">travail</span></h1>
+            <h1 class="rotate3 text-center">Change ta <span class="grey-color">vie</span></h1>
+        </div>
+        <div class="notice-button-first ">
+            <a href="">Apprends à coder</a>
+        </div>
+    </div>
 {% endblock noticeText%}
 
 {% block main %}
@@ -35,33 +37,57 @@
                     {# CAROUSEL PAGE #}
                     <div class="carousel-item active ">
                         {% for i in 0..3 %}
-                         <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                             <a href="">
-                                <p>{{ classes[i].name }}</p>
-                                <p>{{ classes[i].description }}</p>
-                             </a>
-                        </div>
+                            <div >
+                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                        <div class="class-wrapper-text" >
+                                            <h1>{{ classes[i].name }}</h1>
+                                            <p>{{ classes[i].description }}</p>
+                                            <span class="text-small">Rentre dans le cour</span>
+                                        </div>
+                                        <div class="class-wrapper-img" >
+                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         {% endfor %}
 
                     </div>
 
-                    <div class="carousel-item">
+                    <div class="carousel-item ">
                         {% for i in 4..7 %}
-                            <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                <a href="">
-                                    <p>{{ classes[i].name }}</p>
-                                    <p>{{ classes[i].description }}</p>
+                            <div class="" >
+                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                        <div class="class-wrapper-text" >
+                                            <h1>{{ classes[i].name }}</h1>
+                                            <p>{{ classes[i].description }}</p>
+                                            <span class="text-small">Rentre dans le cour</span>
+                                        </div>
+                                        <div class="class-wrapper-img" >
+                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                        </div>
+                                    </div>
                                 </a>
                             </div>
                         {% endfor %}
                     </div>
 
-                    <div class="carousel-item">
+                    <div class="carousel-item ">
                         {% for i in 8..11 %}
-                            <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                <a href="">
-                                    <p>{{ classes[i].name }}</p>
-                                    <p>{{ classes[i].description }}</p>
+                            <div >
+                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                        <div class="class-wrapper-text" >
+                                            <h1>{{ classes[i].name }}</h1>
+                                            <p>{{ classes[i].description }}</p>
+                                            <span class="text-small">Rentre dans le cour</span>
+                                        </div>
+                                        <div class="class-wrapper-img" >
+                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                        </div>
+                                    </div>
                                 </a>
                             </div>
                         {% endfor %}
@@ -296,11 +322,11 @@
             <p class="text-center"> Choisi le domaine dans lequel tu souhait étudier.</p>
             <p class="text-center mb40"> Nos cours te mèneront des bases complètes aux techniques plus avancées.</p>
 
-            <div class=" cubelearnlesson justify-content-around">
+            <div class=" cubelearnlesson ">
                 <div class=""  >
                     <a href="#">
                         <img src="{{ asset('assets/media/icon/iconweb.png') }}" alt="" class="img-fluid img" />
-                        <span>Je veux apprendre ></span>
+                        <span>Je veux apprendre</span>
                         <h3>Crée site web et eshop</h3>
                     </a>
                 </div>
@@ -308,7 +334,7 @@
                 <div >
                     <a href="#">
                         <img src="{{ asset('assets/media/icon/icon-design.png') }}" alt="" class="img-fluid img" />
-                        <span>Je veux apprendre ></span>
+                        <span>Je veux apprendre</span>
                         <h3>Dessiner logos et application</h3>
                     </a>
                 </div>
@@ -316,13 +342,13 @@
                 <div >
                     <a href="#">
                         <img src="{{ asset('assets/media/icon/icon-mobile.png') }}" alt="" class="img-fluid img" />
-                        <span>Je veux apprendre ></span>
+                        <span>Je veux apprendre</span>
                         <h3>Developpé apli mobile</h3>
                     </a>
                 </div>
             </div>
 
-            <div class=" cubelearnlesson justify-content-around">
+            <div class=" cubelearnlesson ">
                 <div >
                     <a href="#">
 
@@ -335,7 +361,7 @@
                 <div >
                     <a href="#">
                         <img src="{{ asset('assets/media/icon/icon-marketing.png') }}" alt="" class="img-fluid img" />
-                        <span>Je veux apprendre ></span>
+                        <span>Je veux apprendre</span>
                         <h3>Marketing</h3>
                     </a>
                 </div>
@@ -343,7 +369,7 @@
                 <div >
                     <a href="#">
                         <img src="{{ asset('assets/media/icon/icon-graphics.png') }}" alt="" class="img-fluid img" />
-                        <span>Je veux apprendre ></span>
+                        <span>Je veux apprendre</span>
                         <h3>Découpage videos</h3>
                     </a>
                 </div>
@@ -391,6 +417,8 @@
             <h2 class="title-h2 text-center"> Deviens docteur de codeur </h2>
             <p>Si tu as l'experience et l'envie apprendre autre coder, n'hésite pas et rejoins nous!</p>
             <p>Le monde de code a besoin de toi</p>
-            <a href="" class="notice-button-second">Plus d'info</a>
+            <div>
+                <a href="" class="notice-button-second">Plus d'info</a>
+            </div>
         </section>
 {% endblock main %}

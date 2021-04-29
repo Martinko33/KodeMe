@@ -5,9 +5,11 @@
 {% endblock barHeader %}
 
 {% block noticeText %}
-    <div class="notice-text">
-        <p>Notre cours online</p>
-        <p>Choisi ton Cour qui te boost</p>
+    <div class="box-header ">
+        <div class="notice-text">
+            <p>Notre cours online</p>
+            <p class="notice-mini-text">Choisi ton Cour qui te boost</p>
+        </div>
     </div>
 {% endblock noticeText %}
 
@@ -22,14 +24,19 @@
     </nav>
 
     <section>
-        <div>
+        <div class="list-class">
             {% for class in classes %}
-                <div>
-                    <a href="">
+                <div >
+                    <a href="{{ path("page_cour", {'name':class.name}) }}">
                         <div class="class-wrapper" style="background-color: {{ class.color}}">
-                            <p>{{ class.name }}</p>
-                            <p>{{ class.description }}</p>
-                            <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}"
+                            <div class="class-wrapper-text" >
+                                <h1>{{ class.name }}</h1>
+                                <p>{{ class.description }}</p>
+                                <span class="text-small">Rentre dans le cour</span>
+                            </div>
+                            <div class="class-wrapper-img" >
+                                <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}" class="resp img">
+                            </div>
                         </div>
                     </a>
                 </div>

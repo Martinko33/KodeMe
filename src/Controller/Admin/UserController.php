@@ -39,7 +39,10 @@ class UserController extends AbstractController
     /**
      * @Route("/user/update", name="roleUpdate")
      */
-    public function roleUpdate( UserRepository $repository, Request $request, EntityManagerInterface $entityManager)
+    public function roleUpdate(
+        UserRepository $repository,
+        Request $request,
+        EntityManagerInterface $entityManager)
     {
         // requete pour trouver l'usagé concerné par la modification grace a l'id
         $user = $repository->findOneBy(['id'=>$request->request->get('id')]);
