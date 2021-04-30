@@ -14,6 +14,9 @@ p{
 h1,h2,h3,p,a{
     font-family: Rubik, sans-serif;
 }
+.noHover{
+    pointer-events: none;
+}
 
 /* ******* COLOR ******* */
 .white-color{
@@ -97,7 +100,8 @@ a:hover{
 }
 
 .title-h2{
-    font-size: 24px;
+    margin-top: 20px;
+    font-size: 36px;
     font-weight: bold;
 }
 .width-40per{
@@ -168,7 +172,7 @@ a:hover{
 .blabla{
     display: flex;
     justify-content: space-between;
-    margin-right: 20px;
+
 
 }
 
@@ -184,7 +188,7 @@ a:hover{
     align-items: center;
     justify-content: center;
     font-family: Rubik, sans-serif;!important;
-    font-size: 36px;!important;
+    font-size: 36px;
     color: #FFFFFF;
     font-weight: bold;
     text-align: center;
@@ -253,10 +257,16 @@ a:hover{
     background-image: url(../media/image/professeure-enseignement.jpg);
     background-size: cover;
     height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
 
 .profcode h2 {
     color: #FFFFFF;
+    margin-bottom: 20px;
 }
 .profcode p {
     text-align: center;
@@ -264,8 +274,8 @@ a:hover{
     color: #FFFFFF;
 }
 
-.profcode a {
-
+.profcode a:hover{
+    color:#4B8F8C;
 }
 
 
@@ -303,7 +313,10 @@ a:hover{
 .carousel-indicators button:hover, .carousel-indicators button.active {
     background-color: black;
 }
-
+.carousel-inner {
+    padding: 30px 150px;
+    box-sizing: border-box;
+}
 
 
 /*.carousel-item {*/
@@ -312,10 +325,7 @@ a:hover{
 /*    flex-wrap: wrap;*/
 /*    justify-content: space-around;*/
 /*}*/
-.carousel-inner {
-    padding: 30px 150px;
-    box-sizing: border-box;
-}
+
 /*.carousel-class-wrapper {*/
 /*    display: inline-block;*/
 /*    !*flex-direction: column;*!*/
@@ -425,6 +435,7 @@ a:hover{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
 }
 
 .learnlesson {
@@ -472,6 +483,51 @@ main a {
 .nav-cours{
     padding: 20px 0;
     margin: 0 20px;
+    border-bottom: 1px solid #4B8F8C;
+}
+.nav-cours a:hover{
+    color: #4B8F8C;
+}
+
+.page-class{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.production-video{
+    margin: 20px;
+}
+.list-class-video{
+    justify-items: center;
+    margin: 20px;
+    font-weight: normal;
+}
+
+.form-search{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+
+}
+.form-search-input{
+    width: 60%;
+    height: 42px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #4B8F8C;
+    color: #4B8F8C;
+}
+
+.recherche_null{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+
+}
+.recherche_null p{
+    margin: 20px;
 }
 
 
@@ -479,4 +535,45 @@ main a {
 
 footer div{
     color: white;
+    margin: 0 20px;
+    align-self: center;
+}
+
+footer li{
+    margin-top: 10px 0;
+}
+
+/* ******Page en construction ******** */
+
+.construct{
+    height: 100vh;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.construct h1{
+    margin-top: 20px;
+    color: yellow;
+
+}
+.construct h1 span{
+    color: white;
+    background-color: red;
+}
+.construct p:first-of-type{
+    color: yellow;
+    margin: 50px 0 10px;
+    font-size: 20px;
+}
+.construct p:last-of-type{
+    color: red;
+    font-size: 20px;
+
 }

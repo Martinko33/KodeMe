@@ -15,13 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserController extends AbstractController
 {
-//    /**
-//     * @Route("/user", name="adminUser")
-//     */
-//    public function adminUser()
-//    {
-//
-//    }
+    /**
+     * @Route("/", name="page_admin")
+     */
+    public function adminPage()
+    {
+      return $this->render('admin/admin.html.twig');
+    }
 
     /**
      * @Route("/user", name="role")

@@ -21,7 +21,7 @@ a {
 
 }
 .header-sidebar{
-    background-color: #047dcb;
+    background-color: #2C365E;
     margin: 0;
 }
 .link{
@@ -46,6 +46,7 @@ a {
 
 .insert-cours{
     align-items: center;
+
 }
 .insert-cours a{
     text-decoration: none;
@@ -53,7 +54,7 @@ a {
     background-color: red;
     color: white;
     padding: 20px;
-    border-radius: 20px;
+
 
 
 }
@@ -61,6 +62,10 @@ a {
 .classes-name{
     font-size: 250px;
     color: navy;
+}
+
+.all-center{
+    text-align: center;
 }
 
 

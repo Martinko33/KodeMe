@@ -7,21 +7,29 @@
 {% block noticeText %}
     <div class="box-header ">
         <div class="notice-text">
-            <p>Notre cours online</p>
+            <h1>Notre cours online</h1>
             <p class="notice-mini-text">Choisi ton Cour qui te boost</p>
         </div>
     </div>
 {% endblock noticeText %}
 
 {% block main %}
+
+
     <nav >
         <ul class="display-flex jus-con-bet nav-cours">
-            <li><a href="{{ path("page_cours") }}" class="prim-color">Tous</a></li>
+            <li><a href="{{ path("page_cours") }}" class="prim-color ">Tous</a></li>
             {% for theme in themes %}
-                <li><a href="{{ path("page_cours_select", {'id':theme.id}) }}" class="prim-color">{{ theme.name }}</a></li>
+                <li><a href="{{ path("page_cours_select", {'id':theme.id}) }}" class="prim-color ">{{ theme.name }}</a></li>
             {% endfor %}
         </ul>
     </nav>
+    <section>
+        <form action="{{ path("search_classes")  }}" class="form-search">
+            <input type="search" id="site-search" name="search" placeholder="Trouve ton cour : ' Python '" class="form-search-input">
+        </form>
+    </section>
+
 
     <section>
         <div class="list-class">

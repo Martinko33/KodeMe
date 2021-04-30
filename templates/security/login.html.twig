@@ -3,49 +3,64 @@
 {% block title %}Log in!{% endblock %}
 
 {% block main %}
-    <div class="container center">
-        <h1>Connexion</h1>
-        <form method="post" class="row">
-            {% if error %}
-                <div class="col s12 m6 l6 offset-m3 offset-l3">
-                    <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+    <div class="container center my-5 d-flex">
+        <div class="col-6 text-center">
+            <h1 class="">Connexion</h1>
+            <form method="post" class="row">
+                {% if error %}
+                    <div class="col s12 m6 l6 offset-m3 offset-l3">
+                        <span class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                    </div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="col offset-m3 offset-l3 mb-3">
+                        Tu es actuellement connecté en tant que
+                        {% if app.user.firstname %}
+                            {{ app.user.firstname }}
+                        {% endif %}
+                        {% if app.user.name %}
+                            {{ app.user.name }}, <a href="{{ path('app_logout') }}">Déconnecte-toi</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                <div class=" d-flex  flex-column ">
+                        <div class="input-field col-6 row justify-content-center offset-m3 offset-l3 ali mb-1">
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="d-flex justify-content-center" required autofocus placeholder="Adresse email">
+                        </div>
+                        <div class="input-field col-6 row offset-m3 offset-l3 mb-1">
+                            <input type="password" name="password" id="inputPassword" class="form-control" required placeholder="Mot de passe">
+                        </div>
+                        <div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        </div>
+
+                        <div class="input-field col-6 s4 row">
+                            <input type="submit" class="btn btn-primary" value="Me connecter">
+                        </div>
+
                 </div>
-            {% endif %}
 
-            {% if app.user %}
-                <div class="col offset-m3 offset-l3">
-                    Tu es actuellement connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnecte-toi</a>
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
                 </div>
-            {% endif %}
-            <div class="">
-                    <div class="input-field col-7 row offset-m3 offset-l3">
-                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="" required autofocus placeholder="Adresse email">
-                    </div>
-                    <div class="input-field col-7 row offset-m3 offset-l3">
-                        <input type="password" name="password" id="inputPassword" class="form-control" required placeholder="Mot de passe">
-                    </div>
-                    <div>
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                    </div>
+                #}
 
-                    <div class="input-field col s4 row">
-                        <input type="submit" class="btn btn-primary" value="Me connecter">
-                    </div>
 
+            </form>
+        </div>
+
+        <div class="col-6 text-center">
+            <h1>Pas de compte?</h1>
+            <div>
+                <a href="{{ path("app_register") }}" class="btn btn-primary text-center">S'enregistrer</a>
             </div>
-
-            {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
-
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="_remember_me"> Remember me
-                </label>
-            </div>
-            #}
-
-
-        </form>
+        </div>
     </div>
 {% endblock %}

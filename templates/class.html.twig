@@ -15,12 +15,13 @@
 {% endblock noticeText %}
 
 {% block main %}
-    <div class="">
-        <h2></h2>
-        <video controls class="video_position videoSource">
-            <source src="{{ asset('uploads/video/videoplayback-6066ec5ce05d8.mp4') }}" type="video/mp4">
-        </video>
-    </div>
+    <div class="page-class">
+        <div class="production-video">
+            <h2></h2>
+            <video controls class="video_position videoSource">
+                <source src="{{ asset('uploads/video/videoplayback-6066ec5ce05d8.mp4') }}" type="video/mp4">
+            </video>
+        </div>
 
 {#    {% for support in supports %}#}
 {#        {% if support.classes %}#}
@@ -40,19 +41,20 @@
 {#            {% endif %}#}
 {#        {% endif %}#}
 {#    {% endfor %}#}
-
-    {% for class in class %}
-        {% for support in class.supports %}
-            {% if support.video %}
-                <div class="linkVideo container-video ">
-                    <a href="{{ asset('uploads/video/' ~ support.video) }}" >
-                        <h3 class="black-color">{{ support.titre }}</h3>
-                    </a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-
+        <div class="list-class-video">
+            {% for class in class %}
+                {% for support in class.supports %}
+                    {% if support.video %}
+                        <div class="linkVideo container-video ">
+                            <a href="{{ asset('uploads/video/' ~ support.video) }}" >
+                                <h3 class="black-color">{{ support.titre }}</h3>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock main %}
 
 {% block script_video %}

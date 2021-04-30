@@ -6,19 +6,101 @@
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
+    <div class="container">
+        <div class="">
+            <h1>Register</h1>
 
-    <h1>Register</h1>
+            {{ form_start(registrationForm) }}
+            <div class="container">
+                <div>
+                    <div class="row">
+                        <div>
+                            <span>{{ form_label(registrationForm.name) }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+{#                         form_errors me sort les error fait par formulaire#}
+                        <div class="bg-danger text-white text-center ">
+                            {{ form_errors(registrationForm.name) }}
+                        </div>
+                        <div class="">
+                            {{ form_widget(registrationForm.name, {'attr': {'placeholder': 'Nom'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div>
+                            <span>{{ form_label(registrationForm.firstname) }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="bg-danger text-white text-center ">
+                            {{ form_errors(registrationForm.firstname) }}
+                        </div>
+                        <div class="">
+                            {{ form_widget(registrationForm.firstname, {'attr': {'placeholder': 'Prenom'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div>
+                            <span>{{ form_label(registrationForm.date) }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="bg-danger text-white text-center ">
+                            {{ form_errors(registrationForm.date) }}
+                        </div>
+                        <div class="">
+                            {{ form_widget(registrationForm.date) }}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div>
+                            <span>{{ form_label(registrationForm.email) }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="bg-danger text-white text-center ">
+                            {{ form_errors(registrationForm.email) }}
+                        </div>
+                        <div class="">
+                            {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'E-mail'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div>
+                            <span>{{ form_label(registrationForm.plainPassword) }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="bg-danger text-white text-center ">
+                            {{ form_errors(registrationForm.plainPassword) }}
+                        </div>
+                        <div class="">
+                            {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Mot de passe'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+{#            {{ form_row(registrationForm.name) }}#}
+{#            {{ form_row(registrationForm.firstname) }}#}
+{#            {{ form_row(registrationForm.date) }}#}
+{#                {{ form_row(registrationForm.email) }}#}
+{#                {{ form_row(registrationForm.plainPassword, {#}
+{#                    label: 'Password'#}
+{#                }) }}#}
 
-    {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.name) }}
-    {{ form_row(registrationForm.firstname) }}
-    {{ form_row(registrationForm.date) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                <button type="submit" class="btn btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
 {% endblock main %}
