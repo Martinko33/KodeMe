@@ -7,6 +7,9 @@
     margin: 0;
     padding: 0;
 }
+.height-60vh{
+    height: 60vh;
+}
 p{
     margin: 0;
     padding: 0;
@@ -319,12 +322,17 @@ a:hover{
 }
 
 
-/*.carousel-item {*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex-wrap: wrap;*/
-/*    justify-content: space-around;*/
-/*}*/
+
+
+.carousel-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.carousel-wrapper > div{
+    width:48%;
+}
 
 /*.carousel-class-wrapper {*/
 /*    display: inline-block;*/
@@ -334,6 +342,86 @@ a:hover{
 /*    box-sizing: border-box;*/
 
 /*}*/
+
+/* ****** Word Carrousel ****** */
+
+.word-carousel{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    height: 65px;
+    padding-top: 10px;
+    margin-top: -10px;
+}
+.word-carousel li{
+    padding: 0 10px;
+    height: 45px;
+    margin-bottom: 45px;
+    display: block;
+    font-family: Rubik, sans-serif;
+    color: #FFFFFF;
+}
+
+.flip3{
+    -webkit-animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+    animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+@-webkit-keyframes flip3 {
+    0% {
+        margin-top: -270px;
+    }
+    5% {
+        margin-top: -180px;
+    }
+    33% {
+        margin-top: -180px;
+    }
+    38% {
+        margin-top: -90px;
+    }
+    66% {
+        margin-top: -90px;
+    }
+    71% {
+        margin-top: 0px;
+    }
+    99.99% {
+        margin-top: 0px;
+    }
+    100% {
+        margin-top: -270px;
+    }
+}
+@keyframes flip3 {
+    0% {
+        margin-top: -270px;
+    }
+    5% {
+        margin-top: -180px;
+    }
+    33% {
+        margin-top: -180px;
+    }
+    38% {
+        margin-top: -90px;
+    }
+    66% {
+        margin-top: -90px;
+    }
+    71% {
+        margin-top: 0px;
+    }
+    99.99% {
+        margin-top: 0px;
+    }
+    100% {
+        margin-top: -270px;
+    }
+}
+
+
+
 
 
 @media screen and (max-width: 992px) {
@@ -369,15 +457,16 @@ a:hover{
 .class-wrapper-text{
     display: flex;
     flex-direction: column;
-    padding: 30px 0;
+    padding: 25px 0;
 }
 
 .class-wrapper-text h1{
-    font-size: 36px;
-    padding: 0 0 20px;
+    font-size: 40px;
+    padding: 0 0 10px;
+    margin: 0;
 }
 .class-wrapper-text p{
-    padding: 0 0 65px;
+    padding: 0 0 35px;
 }
 .class-wrapper-img{
     display: flex;
@@ -390,23 +479,7 @@ a:hover{
 
 
 /* ****** HomePage ******* */
-.rotate1{
-    animation: rotate 2s;
 
-}
-
-.rotate2{
-    animation: rotate 2s;
-}
-.rotate3{
-    animation: rotate 2s;
-}
-
-
-@keyframes rotate {
-    from{transform: rotateX(0turn);}
-    to{transform: rotateX(-1turn);}
-}
 .cubelearnlesson{
     display: flex;
     justify-content: space-around;
@@ -414,7 +487,7 @@ a:hover{
 .cubelearnlesson > div {
     width: 100%;
     max-width: 250px;
-    height: 250px;
+    /*height: 250px;*/
     background-color: #FFFFFF;
 }
 
@@ -539,9 +612,6 @@ footer div{
     align-self: center;
 }
 
-footer li{
-    margin-top: 10px 0;
-}
 
 /* ******Page en construction ******** */
 

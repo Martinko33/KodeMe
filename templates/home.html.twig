@@ -6,13 +6,18 @@
 {% endblock barHeader %}
 {% block noticeText %}
     <div class="box-header ">
-        <div class="notice-text mb40">
-            <h1 class="rotate1 text-center">Change ta <span class="grey-color">passion</span></h1>
-            <h1 class="rotate2 text-center">Change ton <span class="grey-color">travail</span></h1>
-            <h1 class="rotate3 text-center">Change ta <span class="grey-color">vie</span></h1>
+        <div class="word-carousel mb40">
+            <ul class="flip3">
+                <li><h1 class=" text-center">Change ta <span class="grey-color">passion</span></h1></li>
+                <li><h1 class=" text-center">Change ton <span class="grey-color">travail</span></h1></li>
+                <li><h1 class=" text-center">Change ta <span class="grey-color">vie</span></h1></li>
+            </ul>
+{#            <h1 class="rotate1 text-center">Change ta <span class="grey-color">passion</span></h1>#}
+{#            <h1 class="rotate2 text-center">Change ton <span class="grey-color">travail</span></h1>#}
+{#            <h1 class="rotate3 text-center">Change ta <span class="grey-color">vie</span></h1>#}
         </div>
         <div class="notice-button-first ">
-            <a href="">Apprends à coder</a>
+            <a href="{{ path("page_cours") }}">Apprends à coder</a>
         </div>
     </div>
 {% endblock noticeText%}
@@ -31,61 +36,67 @@
 
                 <div class="carousel-inner">
                     {# CAROUSEL PAGE #}
-                    <div class="carousel-item active ">
-                        {% for i in 0..3 %}
-                            <div >
-                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
-                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                        <div class="class-wrapper-text" >
-                                            <h1>{{ classes[i].name }}</h1>
-                                            <p>{{ classes[i].description }}</p>
-                                            <span class="text-small">Rentre dans le cour</span>
+                    <div class="carousel-item active">
+                        <div class="carousel-wrapper">
+                            {% for i in 0..3 %}
+                                <div class="">
+                                    <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                        <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                            <div class="class-wrapper-text" >
+                                                <h1>{{ classes[i].name }}</h1>
+                                                <p>{{ classes[i].description }}</p>
+                                                <span class="text-small">Rentre dans le cour</span>
+                                            </div>
+                                            <div class="class-wrapper-img" >
+                                                <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                            </div>
                                         </div>
-                                        <div class="class-wrapper-img" >
-                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endfor %}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <div class="carousel-item ">
-                        {% for i in 4..7 %}
-                            <div class="" >
-                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
-                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                        <div class="class-wrapper-text" >
-                                            <h1>{{ classes[i].name }}</h1>
-                                            <p>{{ classes[i].description }}</p>
-                                            <span class="text-small">Rentre dans le cour</span>
+                        <div class="carousel-wrapper">
+                            {% for i in 4..7 %}
+                                <div class="" >
+                                    <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                        <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                            <div class="class-wrapper-text" >
+                                                <h1>{{ classes[i].name }}</h1>
+                                                <p>{{ classes[i].description }}</p>
+                                                <span class="text-small">Rentre dans le cour</span>
+                                            </div>
+                                            <div class="class-wrapper-img" >
+                                                <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                            </div>
                                         </div>
-                                        <div class="class-wrapper-img" >
-                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endfor %}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
 
                     <div class="carousel-item ">
-                        {% for i in 8..11 %}
-                            <div >
-                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
-                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                        <div class="class-wrapper-text" >
-                                            <h1>{{ classes[i].name }}</h1>
-                                            <p>{{ classes[i].description }}</p>
-                                            <span class="text-small">Rentre dans le cour</span>
+                        <div class="carousel-wrapper">
+                            {% for i in 8..11 %}
+                                <div >
+                                    <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                        <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                            <div class="class-wrapper-text" >
+                                                <h1>{{ classes[i].name }}</h1>
+                                                <p>{{ classes[i].description }}</p>
+                                                <span class="text-small">Rentre dans le cour</span>
+                                            </div>
+                                            <div class="class-wrapper-img" >
+                                                <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                            </div>
                                         </div>
-                                        <div class="class-wrapper-img" >
-                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        {% endfor %}
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
 
 
@@ -296,11 +307,11 @@
 {#                    </div>#}
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" >
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" >
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" >
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" >
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -319,7 +330,9 @@
             <div class=" cubelearnlesson ">
                 <div class=""  >
                     <a href="#">
-                        <img src="{{ asset('assets/media/icon/iconweb.png') }}" alt="" class="img-fluid img" />
+                        <div>
+                            <img src="{{ asset('assets/media/icon/iconweb.png') }}" alt="" class="img-fluid img resp" />
+                        </div>
                         <span>Je veux apprendre</span>
                         <h3>Crée site web et eshop</h3>
                     </a>
@@ -327,7 +340,9 @@
 
                 <div >
                     <a href="#">
-                        <img src="{{ asset('assets/media/icon/icon-design.png') }}" alt="" class="img-fluid img" />
+                        <div>
+                            <img src="{{ asset('assets/media/icon/icon-design.png') }}" alt="" class="img-fluid img resp" />
+                        </div>
                         <span>Je veux apprendre</span>
                         <h3>Dessiner logos et application</h3>
                     </a>
@@ -335,7 +350,9 @@
 
                 <div >
                     <a href="#">
-                        <img src="{{ asset('assets/media/icon/icon-mobile.png') }}" alt="" class="img-fluid img" />
+                        <div>
+                            <img src="{{ asset('assets/media/icon/icon-mobile.png') }}" alt="" class="img-fluid img resp" />
+                        </div>
                         <span>Je veux apprendre</span>
                         <h3>Developpé apli mobile</h3>
                     </a>
@@ -345,8 +362,9 @@
             <div class=" cubelearnlesson ">
                 <div >
                     <a href="#">
-
-                        <img src="{{ asset('assets/media/icon/icon-copywriting.png') }}" alt="" class="img-fluid img" />
+                        <div>
+                            <img src="{{ asset('assets/media/icon/icon-copywriting.png') }}" alt="" class="img-fluid img resp" />
+                        </div>
                         <span>Je veux apprendre</span>
                         <h3>Office</h3>
                     </a>
@@ -354,7 +372,9 @@
 
                 <div >
                     <a href="#">
-                        <img src="{{ asset('assets/media/icon/icon-marketing.png') }}" alt="" class="img-fluid img" />
+                        <div>
+                            <img src="{{ asset('assets/media/icon/icon-marketing.png') }}" alt="" class="img-fluid img resp" />
+                        </div>
                         <span>Je veux apprendre</span>
                         <h3>Marketing</h3>
                     </a>
@@ -362,7 +382,9 @@
 
                 <div >
                     <a href="#">
-                        <img src="{{ asset('assets/media/icon/icon-graphics.png') }}" alt="" class="img-fluid img" />
+                        <div>
+                            <img src="{{ asset('assets/media/icon/icon-graphics.png') }}" alt="" class="img-fluid img resp" />
+                        </div>
                         <span>Je veux apprendre</span>
                         <h3>Découpage videos</h3>
                     </a>
@@ -374,34 +396,46 @@
             <h2 class="text-center title-h2">Apprendre avec nous c'est <span class="prim-color ">meilleur choix</span> </h2>
             <div class="bestchoice">
                 <div>
-                    <img src="{{ asset('assets/media/icon/remboursement.png') }}" alt="" class="resp carre" />
+                    <div>
+                        <img src="{{ asset('assets/media/icon/remboursement.png') }}" alt="" class="resp carre" />
+                    </div>
                     <span> Garantie remboursements </span>
                 </div>
 
                 <div>
-                    <img src="{{ asset('assets/media/icon/forum.png') }}" alt="" class="resp carre" />
+                    <div>
+                        <img src="{{ asset('assets/media/icon/forum.png') }}" alt="" class="resp carre" />
+                    </div>
                     <span>Forum de discussion modéré</span>
                 </div>
 
                 <div>
-                    <img src="{{ asset('assets/media/icon/video-gallery.png') }}" alt="" class="resp carre" />
+                    <div>
+                        <img src="{{ asset('assets/media/icon/video-gallery.png') }}" alt="" class="resp carre" />
+                    </div>
                     <span>+ de 300 heures de vidéo</span>
                 </div>
             </div>
 
             <div class="bestchoice">
                 <div>
-                    <img src="{{ asset('assets/media/icon/prof.png') }}" alt="" class="resp carre" />
+                    <div>
+                        <img src="{{ asset('assets/media/icon/prof.png') }}" alt="" class="resp carre" />
+                    </div>
                     <span>Top prof</span>
                 </div>
 
                 <div>
-                    <img src="{{ asset('assets/media/icon/study.png') }}" alt="" class="resp carre" />
+                    <div>
+                        <img src="{{ asset('assets/media/icon/study.png') }}" alt="" class="resp carre" />
+                    </div>
                     <span>Exercise, exercise et encore exercise</span >
                 </div>
 
                 <div>
-                    <img src="{{ asset('assets/media/icon/maison.png') }}" alt="" class="resp carre" />
+                    <div>
+                        <img src="{{ asset('assets/media/icon/maison.png') }}" alt="" class="resp carre" />
+                    </div>
                     <span>Tranquilité de maison</span>
                 </div>
             </div>

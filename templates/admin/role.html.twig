@@ -33,7 +33,7 @@
                     <!-- input select pour choisir le nouveau role -->
 
                         <select name="role" id="role">
-                            <option value="">--Choisir la role--</option>
+                            <option value="">Choisir la role</option>
                             <option value="admin">Admin</option>
                             <option value="user">Utilisateur</option>
                             <option value="teacher">Professeur</option>
@@ -43,7 +43,7 @@
                     </form>
                 </td>
                 <td class="text-center">
-                    <a href="{{ path("userDelete",{"id" :user.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a>
+                    <a href="{{ path("userDelete",{"id" :user.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a>
                 </td>
             </tr>
 

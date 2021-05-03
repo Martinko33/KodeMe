@@ -54,7 +54,7 @@ class ClassesController extends AbstractController
         SupportRepository $supportRepository)
     {
 
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, "Si vous voulez rentrer dans le cour faut s'enregistrer");
+        $this->denyAccessUnlessGranted('ROLE_USER', null, "Si vous voulez rentrer dans le cour faut s'enregistrer");
         $class = $classesRepository ->findBy(["name" =>$name]);
 
 //        $supports = $supportRepository ->findAll();
@@ -68,7 +68,7 @@ class ClassesController extends AbstractController
     /**
      * @Route("/search", name="search_classes")
      */
-    public function searchClasses(Request $request, ClassesRepository $classesRepository)
+    public function searchClasses(Request $request, ClassesRepository $classesRepository, ThemeRepository $themeRepository)
     {
         // je fais requete query quelle me recoupere dans mon input recherche le mot que utilisateur ecris
         // je utilise la methode get pour recoupere ca de URL
@@ -77,9 +77,12 @@ class ClassesController extends AbstractController
         // quelle se trouve dans Repository-> classesrepository
         $classes = $classesRepository->searchByTerm($search);
 
+        $themes = $themeRepository->findAll();
+
         // je envoie ma class vers html.twig avec ma variable $classes
         return $this->render('search.html.twig', [
-            'classes' => $classes
+            'classes' => $classes,
+            'themes' => $themes
         ]);
 
 

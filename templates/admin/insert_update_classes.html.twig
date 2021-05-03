@@ -23,8 +23,8 @@
                     <div class="bg-danger text-white text-center ">
                         {{ form_errors(formClassView.name) }}
                     </div>
-                    <div class="border border-4 border border-danger p-0 ">
-                        {{ form_widget(formClassView.name, {'attr': {'class': 'full-width','placeholder': 'Faut mettre jolie nom de cours!!'}}) }}
+                    <div class="p-0 ">
+                        {{ form_widget(formClassView.name, {'attr': {'class': 'full-width input-border','placeholder': 'Nom de cour'}}) }}
                     </div>
                 </div>
             </div>
@@ -36,8 +36,8 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="border border-4 border border-danger p-0 ">
-                        {{ form_widget(formClassView.description, {'attr': {'class': 'full-width','placeholder': 'STP fait jolie description!!'}}) }}
+                    <div class="p-0 ">
+                        {{ form_widget(formClassView.description, {'attr': {'class': 'full-width input-border','placeholder': 'Description cour'}}) }}
                     </div>
 
                 </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="row ">
                     <div class=" ">
-                        {{ form_widget(formClassView.price)  }}
+                        {{ form_widget(formClassView.price, {'attr': {'class': 'full-width input-border','placeholder': 'Prix'}})  }}
                     </div>
                 </div>
             </div>
@@ -64,27 +64,35 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="">
-                        {{ form_widget(formClassView.time, {'attr': {'class': 'published-bool full-width', 'id': 'check'}}) }}
+                    <div class="text-center fs-3 col-10">
+                        {{ form_widget(formClassView.time, {'attr': {'class': 'published-bool full-width all-center', 'id': 'check'}}) }}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            {{ form_row(formClassView.icon) }}
-        </div>
-
         <div class="row justify-content-around mb-5">
+            <div class="col-5">
+                <div class="row">
+                    <div class="fw-bold text-center fs-3 col-10 text-capitalize">
+                        <h3>{{ form_label(formClassView.icon) }}</h3>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="text-center col-10">
+                        {{ form_widget(formClassView.icon)  }}
+                    </div>
+                </div>
+            </div>
             <div class="col-5">
                 <div class="row">
                     <div class="fw-bold text-center fs-3 col-10">
                         <h3>{{ form_label(formClassView.color) }}</h3>
                     </div>
                 </div>
-                <div class="row ">
-                    <div class=" ">
-                        {{ form_widget(formClassView.color)  }}
+                <div class="row">
+                    <div class=" text-center col-10">
+                        {{ form_widget(formClassView.color) }}
                     </div>
                 </div>
             </div>
@@ -98,7 +106,7 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class=" ">
+                    <div class="text-center col-10">
                         {{ form_widget(formClassView.themes)  }}
                     </div>
                 </div>

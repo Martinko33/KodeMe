@@ -22,8 +22,8 @@
                     <div class="bg-danger text-white text-center ">
                         {{ form_errors(formSupportView.titre) }}
                     </div>
-                    <div class="border border-4 border border-danger p-0 ">
-                        {{ form_widget(formSupportView.titre, {'attr': {'class': 'full-width','placeholder': 'Faut mettre jolie titre de cours!!'}}) }}
+                    <div class=" p-0 ">
+                        {{ form_widget(formSupportView.titre, {'attr': {'class': 'full-width input-border','placeholder': 'Titre de cours'}}) }}
                     </div>
                 </div>
             </div>
@@ -35,8 +35,8 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="border border-4 border border-danger p-0 ">
-                        {{ form_widget(formSupportView.content, {'attr': {'class': 'full-width','placeholder': 'STP fait jolie content!!'}}) }}
+                    <div class=" p-0 ">
+                        {{ form_widget(formSupportView.content, {'attr': {'class': 'full-width input-border','placeholder': 'Description'}}) }}
                     </div>
 
                 </div>
@@ -46,24 +46,24 @@
         <div class="row justify-content-around mb-5">
             <div class="col-5">
                 <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
+                    <div class="fw-bold text-center fs-3 col-10 text-capitalize">
                         <h3>{{ form_label(formSupportView.image) }}</h3>
                     </div>
                 </div>
                 <div class="row ">
-                    <div class=" ">
+                    <div class="text-center col-10 ">
                         {{ form_widget(formSupportView.image)  }}
                     </div>
                 </div>
             </div>
             <div class="col-5">
                 <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
+                    <div class="fw-bold text-center fs-3 col-10 text-capitalize">
                         <h3>{{ form_label(formSupportView.video) }}</h3>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="">
+                    <div class="text-center col-10">
                         {{ form_widget(formSupportView.video, {'attr': {'class': 'published-bool full-width', 'id': 'check'}}) }}
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class=" ">
+                    <div class="text-center col-10 ">
                         {{ form_widget(formSupportView.classes)  }}
                     </div>
                 </div>
@@ -86,36 +86,31 @@
             <div class="col-5">
                 <div class="row">
                     <div class="fw-bold text-center fs-3 col-10">
-
+                        <h3>{{ form_label(formSupportView.alt) }}</h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="">
-
+                        {{ form_widget(formSupportView.alt, {'attr': {'class': 'full-width input-border','placeholder' : 'Alt'}})  }}
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            {{ form_row(formSupportView.alt) }}
-        </div>
-        {#
         <div class="row justify-content-around mb-5">
             <div class="col-5">
                 <div class="row">
                     <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formCategoryView.image) }}</h3>
+                        <h3>{{ form_label(formSupportView.url) }}</h3>
                     </div>
                 </div>
                 <div class="row ">
-                    <div class=" ">
-                        {{ form_widget(formCategoryView.image)  }}
+                    <div class="text-center col-10">
+                        {{ form_widget(formSupportView.url, {'attr': {'class': 'full-width input-border','placeholder' : 'Url'}})  }}
                     </div>
                 </div>
             </div>
         </div>
-        #}
 
         <div class="submit-form-article d-flex justify-content-center pb-5">
             {{ form_widget(formSupportView.submit) }}

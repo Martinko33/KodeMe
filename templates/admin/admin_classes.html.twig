@@ -34,7 +34,7 @@
                     {% for class in classes %}
                         <tr class="bg-light text-center">
                             <td>{% if class.icon %}
-                                    <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}" class="image bg-black" style="width: 100px" >
+                                    <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}" class="image bg-black resp" style="width: 100px" >
                                 {% endif %}</td>
                             <td>{{ class.name }}</td>
                             <td>{{ class.description }}</td>
@@ -42,8 +42,8 @@
                             {% if class.themes %}
                                 <td>{{ class.themes.name}}</td>
                             {% endif %}
-                            <td><a href="{{ path("admin_classes_update",{"id" :class.id}) }}"><img src="../assets/media/icon/updated.png" alt="" class="width50 me-4"></a></td>
-                            <td><a href="{{ path("admin_classes_delete",{"id" :class.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a></td>
+                            <td><a href="{{ path("admin_classes_update",{"id" :class.id}) }}"><img src="{{ asset('assets/media/icon/updated.png') }}" alt="" class="width50 resp me-4"></a></td>
+                            <td><a href="{{ path("admin_classes_delete",{"id" :class.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="" class="width50 resp"></a></td>
                         </tr>
                     {% endfor %}
                 </table>

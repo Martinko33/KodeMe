@@ -41,6 +41,7 @@ class Support
 
     /**
      * @ORM\Column(type="string", length=500, nullable=true)
+     *
      */
     private $image;
 

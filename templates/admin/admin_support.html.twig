@@ -49,8 +49,8 @@
                                                             <h3 class="fs-5">{{ support.titre }}</h3>
                                                         </a>
                                                         <div class=" d-flex align-items-center ms-auto p-3 me-3 ">
-                                                            <a href="{{ path("admin_support_update",{"id" :support.id}) }}"><img src="../assets/media/icon/updated.png" alt="" class="width50 me-4"></a>
-                                                            <a href="{{ path("admin_support_delete",{"id" :support.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a>
+                                                            <a href="{{ path("admin_support_update",{"id" :support.id}) }}"><img src="{{ asset('assets/media/icon/updated.png') }}" alt="update" class="width50 me-4 resp"></a>
+                                                            <a href="{{ path("admin_support_delete",{"id" :support.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a>
                                                         </div>
                                                     </div>
                                                 </div>

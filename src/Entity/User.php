@@ -6,10 +6,11 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Cet email était déja enregistré")
  */
 class User implements UserInterface
 {
@@ -22,6 +23,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(
+     *     message = "Faut écrire ton mail."
+     *      )
      */
     private $email;
 
@@ -33,16 +37,36 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     *     min = 6,
+     *     max = 50,
+     *     minMessage="Ton mot de passe doit avoir minimal {{ limit }} characteurs",
+     *     maxMessage="Ton mot de passe doit avoir maximal {{ limit}} characteurs"
+     *  )
+     *
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(
+     *     message = "Tu as oublié écrir ton nom."
+     *     )
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Ton nom ne peut pas contient la chiffre."
+     * )
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Ton prenom ne peut pas contient la chiffre"
+     * )
      */
     private $firstname;
 

@@ -27,8 +27,8 @@
                     {% for theme in themes %}
                         <tr class="bg-light">
                             <td>{{ theme.name }}</td>
-                            <td><a href="{{ path("admin_themes_update",{"id" :theme.id}) }}"><img src="../assets/media/icon/updated.png" alt="" class="width50 me-4"></a></td>
-                            <td><a href="{{ path("admin_themes_delete",{"id" :theme.id}) }}"><img src="../assets/media/icon/delete.png" alt="" class="width50"></a></td>
+                            <td><a href="{{ path("admin_themes_update",{"id" :theme.id}) }}"><img src="{{ asset('assets/media/icon/updated.png') }}" alt="update" class="width50 me-4 resp"></a></td>
+                            <td><a href="{{ path("admin_themes_delete",{"id" :theme.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a></td>
                         </tr>
                     {% endfor %}
                 </table>

@@ -1,7 +1,14 @@
 {% extends "base.html.twig" %}
 
 {% block search %}
-
+    <nav >
+        <ul class="display-flex jus-con-bet nav-cours">
+            <li><a href="{{ path("page_cours") }}" class="prim-color ">Tous</a></li>
+            {% for theme in themes %}
+                <li><a href="{{ path("page_cours_select", {'id':theme.id}) }}" class="prim-color ">{{ theme.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
 
 {% if classes | length > 0 %}
     {% for class in classes %}
