@@ -53,7 +53,7 @@ class ClassesController extends AbstractController
         ClassesRepository $classesRepository,
         SupportRepository $supportRepository)
     {
-
+//        je bloque entree
         $this->denyAccessUnlessGranted('ROLE_USER', null, "Si vous voulez rentrer dans le cour faut s'enregistrer");
         $class = $classesRepository ->findBy(["name" =>$name]);
 

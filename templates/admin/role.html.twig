@@ -4,51 +4,61 @@
     <h1 class="text-center p-2 text-white bg-noir">Utilisateur</h1>
 {% endblock header_admin %}
 {% block main %}
-    <section>
-        <table>
-            <tr>
-                <th class="text-center">Nom</th>
-                <th class="text-center">Prenom</th>
-                <th class="text-center">Email</th>
-                <th class="text-center">Date de naissance</th>
-                <th class="text-center">Role</th>
-                <th class="text-center">Update Role</th>
-                <th class="text-center">Supprimé User</th>
-            </tr>
+    <div class="container-fluid">
+        <section class="row">
+            <table class="">
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Prénom</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Date de naissance</th>
+                    <th class="text-center">Role</th>
+                    <th class="text-center">Update Role</th>
+                    <th class="text-center">Supprimé User</th>
+                </tr>
 
-        <!-- boucle for pour afficher mes usagés -->
-        {% for user in users %}
-            <!-- afficher le reste des données -->
-            <tr>
-                <td class="text-center">{{ user.name }}</td>
-                <td class="text-center">{{ user.firstname }}</td>
-                <td class="text-center">{{ user.email }}</td>
-                <td class="text-center">{{ user.date |date("d.M.Y")}}</td>
-                <td class="text-center">{{ user.roles|json_encode |trim('[],""')}}</td>
-                <td class="text-center">
-                    <!-- début du formulaire / en méthode post / action => a envoyer a cette function -->
-                    <form method="post" action="{{ path('roleUpdate') }}">
-                    <!-- input hidden ( caché ) pour envoyé en value l'id de l'usagé concerné -->
-                        <input type="hidden" name="id" value="{{ user.id }}">
-                    <!-- input select pour choisir le nouveau role -->
+                <!-- boucle for pour afficher mes usagés -->
+                {% set role ="" %}
+                {% for user in users %}
+                <!-- afficher le reste des données -->
+                <tr class="bg-light mb-2">
+                    <td class="text-center">{{ user.name }}</td>
+                    <td class="text-center">{{ user.firstname }}</td>
+                    <td class="text-center">{{ user.email }}</td>
+                    <td class="text-center">{{ user.date |date("d.M.Y")}}</td>
+                {# affichage role #}
+                    {% if "ROLE_ADMIN" in user.roles  %}
+                        {%  set role ="Admin" %}
+                    {% elseif "ROLE_USER" in user.roles %}
+                        {% set role ="Utilisateur" %}
+                    {% elseif "ROLE_TEACHER" in user.roles %}
+                        {% set role ="Profeseur" %}
+                    {% endif %}
+                    <td class="text-center">{{role}}</td>
 
-                        <select name="role" id="role">
-                            <option value="">Choisir la role</option>
-                            <option value="admin">Admin</option>
-                            <option value="user">Utilisateur</option>
-                            <option value="teacher">Professeur</option>
-                        </select>
-                    <!-- envoi -->
-                        <input type="submit">
-                    </form>
-                </td>
-                <td class="text-center">
-                    <a href="{{ path("userDelete",{"id" :user.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a>
-                </td>
-            </tr>
+                    <td class="text-center">
+                        <!-- début du formulaire / en méthode post / action => a envoyer a cette function -->
+                        <form method="post" action="{{ path('roleUpdate') }}">
+                        <!-- input hidden ( caché ) pour envoyé en value l'id de l'usagé concerné -->
+                            <input type="hidden" name="id" value="{{ user.id }}">
+                        <!-- input select pour choisir le nouveau role -->
 
-        {% endfor %}
-        </table>
-    </section>
-
+                            <select name="role" id="role">
+                                <option value="">Choisir la role</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">Utilisateur</option>
+                                <option value="teacher">Professeur</option>
+                            </select>
+                        <!-- envoi -->
+                            <input type="submit">
+                        </form>
+                    </td>
+                    <td class="text-center">
+                        <a href="{{ path("userDelete",{"id" :user.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </div>
 {% endblock main %}

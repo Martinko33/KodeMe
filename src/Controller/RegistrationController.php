@@ -24,21 +24,22 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // encodage de mot de passe utilisateur
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
+            // chaque nouveau utilisateur enregistrer va avoir role user
             $user->setRoles(array('ROLE_USER'));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
-            $this->addFlash('success', 'Email envoyé, merci pour votre inscription');
+
+            $this->addFlash('success', 'Merci pour votre inscription');
             $this->redirectToRoute('page_home');
 
 

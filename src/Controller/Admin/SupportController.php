@@ -115,6 +115,43 @@ class SupportController extends AbstractController
         if($formSupport->isSubmitted() && $formSupport->isValid()) {
             $support = $formSupport->getData();
 
+            $imageFile = $formSupport->get('image')->getData();
+            if ($imageFile){
+                $orgFilename= pathinfo($imageFile->getClientOriginalName(),PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($orgFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('image_directory'),
+                        $newFilename
+                    );
+                }catch (FileException $e){
+
+                }
+                $support->setImage($newFilename);
+
+            }
+
+            $videoFile = $formSupport->get('video')->getData();
+            if ($videoFile){
+
+                $orgVideoname= pathinfo($videoFile->getClientOriginalName(),PATHINFO_FILENAME);
+                $safeVideoname = $slugger->slug($orgVideoname);
+                $newVideoname = $safeVideoname.'-'.uniqid().'.'.$videoFile->guessExtension();
+
+                try {
+                    $videoFile->move(
+                        $this->getParameter('video_directory'),
+                        $newVideoname
+                    );
+                }catch (FileException $e){
+
+                }
+                $support->setVideo($newVideoname);
+
+            }
+
             $entityManager ->persist($support);
             $entityManager ->flush();
 

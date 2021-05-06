@@ -14,7 +14,7 @@ a {
 .sidebar{
     background-color: black;
     max-width:350px;
-    height: 100vh;
+    height: 200vh;
     float:left;
     padding:10px 0px 20px 0px;
     border:20px solid #111;
@@ -58,8 +58,7 @@ a {
 }
 
 .classes-name{
-    font-size: 250px;
-    color: navy;
+    font-size: 15px;
 }
 
 .all-center{
@@ -70,6 +69,11 @@ a {
     border: 1px solid black;
     padding: 10px;
     width: 80%;
+}
+
+table tr{
+    width: 100%;
+
 }
 
 

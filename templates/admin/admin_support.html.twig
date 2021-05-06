@@ -9,14 +9,14 @@
 
 {% block main %}
 
-    <div class="row justify-content-around">
-        <div class="insert-cours d-flex align-items-center col-md-5 m-3 flex-column align-items-start">
-            <div class="d-flex align-items-start my-5">
+    <div class="row justify-content-around d-flex ">
+        <div class="insert-cours col-md-10 col-lg-5 my-3">
+            <div class="">
                 <a href="{{ path("admin_support_insert") }}">Insert tes support pour Cours</a>
             </div>
         </div>
 
-        <div class="col-md-5">
+        <div class="d-none d-lg-block col-lg-7">
             <h2>Vérifie ton video que tu as ajoute</h2>
             <video controls class="video_position videoSource">
                 <source src="{{ asset('uploads/video/videoplayback-6066ec5ce05d8.mp4') }}" type="video/mp4">
@@ -31,8 +31,8 @@
                     {% if supportName is not defined or supportName != support.classes.name %}
                         <div class="container">
                             <div class="row">
-                                <div class="classes-name my-3 bg-info p-3 text-white">
-                                    <h2>{{ support.classes.name }}</h2>
+                                <div class="my-3 fs-1 p-1 text-white" style="background-color: {{ support.classes.color}}">
+                                    <h2 class="px-4">{{ support.classes.name }}</h2>
                                 </div>
                                 {% for support in support.classes.supports %}
 
@@ -40,15 +40,15 @@
     {#                                    <img src="{{asset('uploads/image/' ~ support.image) }}" alt="{{ support.titre }}" class="image" style="width: 100px" >#}
     {#                                {% endif %}#}
 
-                                    {% if support.video %}
+{#                                    {% if support.video %}#}
 
                                             <div class="row justify-content-center">
                                                 <div class="width80 ">
                                                     <div class="linkVideo container-video d-flex align-items-center text-center bg-light mb-2 ">
-                                                        <a href="{{ asset('uploads/video/' ~ support.video) }}" class="text-decoration-none text-dark ms-5">
-                                                            <h3 class="fs-5">{{ support.titre }}</h3>
+                                                        <a href="{{ asset('uploads/video/' ~ support.video) }}" class="text-decoration-none text-dark ms-3">
+                                                            <span class="">{{ support.titre }}</span>
                                                         </a>
-                                                        <div class=" d-flex align-items-center ms-auto p-3 me-3 ">
+                                                        <div class=" d-flex align-items-center ms-auto p-1 me-3 ">
                                                             <a href="{{ path("admin_support_update",{"id" :support.id}) }}"><img src="{{ asset('assets/media/icon/updated.png') }}" alt="update" class="width50 me-4 resp"></a>
                                                             <a href="{{ path("admin_support_delete",{"id" :support.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a>
                                                         </div>
@@ -56,7 +56,7 @@
                                                 </div>
                                             </div>
 
-                                    {% endif %}
+{#                                    {% endif %}#}
 
                                 {% endfor %}
                             </div>

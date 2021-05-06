@@ -20,9 +20,9 @@
             </div>
         </div>
         <div class="container-fluid">
-            <section>
+            <section class="row">
                 <table>
-                    <tr class="text-center">
+                    <tr class="text-center ">
                         <th class="">Icone</th>
                         <th class="">Nom</th>
                         <th class="">Description</th>
@@ -32,10 +32,12 @@
                         <th class="">Delete</th>
                     </tr>
                     {% for class in classes %}
-                        <tr class="bg-light text-center">
-                            <td>{% if class.icon %}
+                        <tr class="bg-light text-center ">
+                            <td>
+                                {% if class.icon %}
                                     <img src="{{asset('uploads/icons/' ~ class.icon) }}" alt="{{ class.name }}" class="image bg-black resp" style="width: 100px" >
-                                {% endif %}</td>
+                                {% endif %}
+                            </td>
                             <td>{{ class.name }}</td>
                             <td>{{ class.description }}</td>
                             <td>{{ class.color}}</td>
@@ -48,7 +50,6 @@
                     {% endfor %}
                 </table>
             </section>
-
         </div>
     </div>
 {% endblock main %}

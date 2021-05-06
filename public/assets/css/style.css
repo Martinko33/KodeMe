@@ -66,6 +66,7 @@ a:hover{
 }
 
 
+
 .resp {
     width: 100%;
     height: auto;
@@ -158,10 +159,20 @@ a:hover{
     background-color: #2C365E;
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    position:relative;
 }
 .bar-navigation ul{
     margin-bottom: 0;
+}
+
+
+.box-bar{
+    flex-grow: 1;
+}
+.box-bar1{
+    flex-grow: 8;
 }
 
 .lientop{
@@ -170,7 +181,14 @@ a:hover{
     margin: 0 20px;
     width: 100%;
     padding: 0;
+    align-items: center;
 }
+
+.lientop li{
+    text-align: center;
+}
+
+
 
 .blabla{
     display: flex;
@@ -185,6 +203,74 @@ a:hover{
     font-size: 30px;
     padding: 5px;
     color: white;
+}
+
+
+#hamb{
+    width:50px;
+    padding:0;
+    cursor:pointer;
+}
+
+#hamb li{
+    height:2px;
+    background-color: white;
+    margin-bottom:10px;
+    width:100%;
+}
+
+.hamburger{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    background-color: #2C365E;
+}
+
+.hamburger.show{
+    display:block
+}
+
+.hamburger nav {
+
+    position: relative;
+    width: 220px;
+    margin: 20px;
+}
+
+.hamburger nav ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hamburger nav li {
+    margin: -4px 0 0 0;
+}
+
+.hamburger nav a {
+    display: block;
+    text-decoration: none;
+    background: #4B8F8C;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 1em 1.52em;
+}
+.hamburger nav a:hover {
+    background-color: #43807e;
+}
+
+
+.hamburger nav header {
+    display: block;
+    background: #4B8F8C;
+    border-radius: 4px;
+    border-bottom: 5px solid #FFFFFF;
+    padding: 1em 1.52em;
+    color: white;
+    font-family: Rubik, sans-serif;
+    cursor:pointer;
+
 }
 
 .notice-text{
@@ -317,12 +403,8 @@ a:hover{
     background-color: black;
 }
 .carousel-inner {
-    padding: 30px 150px;
     box-sizing: border-box;
 }
-
-
-
 
 .carousel-wrapper{
     display: flex;
@@ -332,6 +414,8 @@ a:hover{
 
 .carousel-wrapper > div{
     width:48%;
+    display: flex;
+    justify-content: center;
 }
 
 /*.carousel-class-wrapper {*/
@@ -365,6 +449,7 @@ a:hover{
 .flip3{
     -webkit-animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
     animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+    padding-left: 0;
 }
 
 @-webkit-keyframes flip3 {
@@ -384,10 +469,10 @@ a:hover{
         margin-top: -90px;
     }
     71% {
-        margin-top: 0px;
+        margin-top: 0;
     }
     99.99% {
-        margin-top: 0px;
+        margin-top: 0;
     }
     100% {
         margin-top: -270px;
@@ -410,10 +495,10 @@ a:hover{
         margin-top: -90px;
     }
     71% {
-        margin-top: 0px;
+        margin-top: 0;
     }
     99.99% {
-        margin-top: 0px;
+        margin-top: 0;
     }
     100% {
         margin-top: -270px;
@@ -422,34 +507,30 @@ a:hover{
 
 
 
-
-
-@media screen and (max-width: 992px) {
-    .carousel-class-wrapper {
-        width: 350px;
-    }
-}
-
 /* ******* Fin Carrousel ****** */
 
 /* ******** Classes - Chocolat ******** */
 .list-class{
     display: grid;
     grid-template-columns: 1fr 1fr ;
-    grid-gap: 30px;
+    /*grid-gap: 30px;*/
     margin-left: auto;
+}
+
+.list-class > div {
+    display:flex;
+    justify-content: center;
 }
 
 .class-wrapper {
     display: flex;
     /*flex-direction: column;*/
-    width: 100%;
     /*box-sizing: border-box;*/
     height: 230px;
     color: white;
     padding: 20px 20px;
-    max-width: 450px;
-    margin:40px;
+    width: 450px;
+    margin:20px;
     justify-content: space-between;
 
 }
@@ -573,7 +654,12 @@ main a {
 .list-class-video{
     justify-items: center;
     margin: 20px;
-    font-weight: normal;
+    width: 30%;
+    text-align: center;
+
+}
+.list-class-video div{
+    border: 2px solid #4B8F8C;
 }
 
 .form-search{
@@ -602,6 +688,84 @@ main a {
 .recherche_null p{
     margin: 20px;
 }
+
+
+/* ***** Class **** */
+.container-class{
+    border-top: 1px solid #4B8F8C;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container-class span{
+    background-color: #f8f8f9;
+    padding: 10px 30px;
+    border: 1px solid #4B8F8C;
+}
+
+#description,
+#avis,
+#forum,
+#support{
+    cursor:pointer;
+}
+.description,
+.support,
+.avis,
+.forum{
+    display:none;
+    border: 1px solid ;
+    width: 100%;
+    text-align: center;
+}
+
+.description.show,
+.support.show,
+.avis.show,
+.forum.show{
+    display: block;
+}
+
+.support a,
+.forum a{
+    color: black;
+}
+
+.support tr{
+    border: 1px solid #4B8F8C;
+    width: 80%;
+}
+.support td{
+    padding: 5px 30px;
+}
+.center{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.feedback{
+    height: 80vh;
+    background-color: #f8f8f9;
+    width: 80%;
+
+}
+
+.forum ul{
+    display: flex;
+    justify-content: space-around;
+
+}
+.forum li{
+    margin: 10px 0;
+    border-bottom: 1px solid #4B8F8C;
+}
+
+
+
+
+
+
 
 
 /* ****** Footer ****** */
@@ -647,3 +811,107 @@ footer div{
     font-size: 20px;
 
 }
+
+/********* Login ******* */
+.show-name-user{
+    ;
+}
+
+
+/* ******* Responsive ******** */
+
+@media screen and (max-width: 992px) {
+    .carousel-wrapper {
+
+        display: flex;
+    }
+
+    .carousel-wrapper > div{
+        width:100%;
+
+    }
+
+    .cubelearnlesson{
+        margin: 20px ;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cubelearnlesson > div{
+        margin: 40px;
+    }
+
+    .bestchoice{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bestchoice > div {
+        margin: 20px;
+        padding: 20px 40px;
+    }
+
+    footer.bar-navigation{
+        flex-direction: column;
+    }
+
+    footer.bar-navigation div{
+        margin: 20px;
+    }
+
+    .list-class{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-gap: 0;
+
+    }
+    .nav-theme{
+        justify-content: center;
+
+    }
+    .nav-theme ul{
+        flex-wrap: wrap;
+    }
+
+    .page-class{
+        flex-direction: column;
+    }
+
+    .box-bar1{
+        flex-grow: 0;
+    }
+
+    .responsive{
+        display: none;
+    }
+
+
+}
+@media screen and (min-width: 992px){
+    #hamb{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .class-wrapper{
+        width: 550px;
+        height: 300px;
+    }
+    .class-wrapper-text h1{
+        font-size: 50px;
+
+    }
+    .class-wrapper-text p{
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+
+
+
