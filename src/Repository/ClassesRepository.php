@@ -24,7 +24,7 @@ class ClassesRepository extends ServiceEntityRepository
     {
         //je cree mon querybuilder pour cree ma roquete
         $qb = $this->createQueryBuilder('class');
-        // je cree ma roquete select ( presque pareil comme sql), select 'a' veut dire article alias a
+        // je cree ma roquete select ( presque pareil comme sql)
         $query = $qb-> select('class')
             ->where('class.name LIKE :search')
             ->orWhere('class.description LIKE :search')

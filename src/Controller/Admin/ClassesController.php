@@ -55,7 +55,7 @@ class ClassesController extends AbstractController  // AbstractController c'est 
         $formClass->handleRequest($request);
         // je verifie si mon requete est bien passé bien envoyé et si les données corresponde
         if($formClass->isSubmitted() && $formClass->isValid()) {
-
+            // recupérer
             $class = $formClass->getData();
             // je recouper icon de url get par getData et je le stock en iconFile
             $iconFile = $formClass->get('icon')->getData();
@@ -161,7 +161,7 @@ class ClassesController extends AbstractController  // AbstractController c'est 
         $entityManager -> flush($class);
 
 
-        $this->addFlash('success', 'Votre Cour '.$class->getName().' etais bien supprime');
+        $this->addFlash('success', 'Votre Cour '.$class->getName().' étais bien supprimé');
         return $this->redirectToRoute('display_classes');
     }
 }

@@ -161,7 +161,7 @@ a:hover{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position:relative;
+
 }
 .bar-navigation ul{
     margin-bottom: 0;
@@ -850,10 +850,17 @@ footer div{
         margin: 20px;
         padding: 20px 40px;
     }
+    .bar-navigation{
+        position: fixed;
+        width: 100%;
+        z-index: 10000;
+    }
 
     footer.bar-navigation{
         flex-direction: column;
+        position: relative;
     }
+
 
     footer.bar-navigation div{
         margin: 20px;

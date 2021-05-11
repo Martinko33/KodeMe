@@ -36,8 +36,8 @@ class ClassesController extends AbstractController
         ThemeRepository $themeRepository)
     {
         $classes = $classesRepository->findBy(['themes'=>$id]);
-        $theme = $themeRepository->findAll();
-        $themes = $themeRepository -> find($id);
+        $themes = $themeRepository->findAll();
+        $theme = $themeRepository -> find($id);
             return $this->render('classes.html.twig',[
                 "classes" => $classes,
                 "themes" => $themes,
