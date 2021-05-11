@@ -851,7 +851,6 @@ footer div{
         padding: 20px 40px;
     }
     .bar-navigation{
-        position: fixed;
         width: 100%;
         z-index: 10000;
     }
