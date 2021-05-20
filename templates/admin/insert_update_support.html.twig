@@ -4,7 +4,11 @@
 {% endblock title %}
 
 {% block header_admin %}
-    <h1 class="text-center p-2 text-white bg-noir">Update Support</h1>
+    {% if 'insert' in app.request.get('_route')  %}
+        <h1 class="text-center p-2 text-white bg-noir">Insert Support</h1>
+    {% elseif 'update' in app.request.get('_route') %}
+        <h1 class="text-center p-2 text-white bg-noir">Update Support</h1>
+    {% endif %}
 {% endblock header_admin %}
 
 {% block main %}

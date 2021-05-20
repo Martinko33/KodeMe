@@ -20,11 +20,13 @@ class SupportController extends AbstractController
     /**
      * @Route("/admin/support", name="display_support")
      */
-    public function displaySupports( SupportRepository $supportRepository)
+    public function displaySupports( ClassesRepository $classesRepository, SupportRepository $supportRepository)
     {
         $supports = $supportRepository->findAll();
+        $classes = $classesRepository->findAll();
         return $this->render('admin/admin_support.html.twig',[
           'supports' => $supports,
+            'classes' => $classes
         ]);
 
     }

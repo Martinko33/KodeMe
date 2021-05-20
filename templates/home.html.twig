@@ -12,9 +12,6 @@
                 <li><h1 class=" text-center">Change ton <span class="grey-color">travail</span></h1></li>
                 <li><h1 class=" text-center">Change ta <span class="grey-color">passion</span></h1></li>
             </ul>
-{#            <h1 class="rotate1 text-center">Change ta <span class="grey-color">passion</span></h1>#}
-{#            <h1 class="rotate2 text-center">Change ton <span class="grey-color">travail</span></h1>#}
-{#            <h1 class="rotate3 text-center">Change ta <span class="grey-color">vie</span></h1>#}
         </div>
         <div class="notice-button-first ">
             <a href="{{ path("page_cours") }}">Apprends à coder</a>
@@ -23,95 +20,96 @@
 {% endblock noticeText%}
 
 {% block main %}
-        <h2 class="text-center title-h2"><span class="prim-color ">Nouveaux</span> cours</h2>
-
+        <h2 class="text-center title-h2">
+            <span class="prim-color ">Nouveaux</span> cours
+        </h2>
     {% block carrousel %}
 
-            <div id="carouselIndicators" class="carousel slide my-5" data-bs-ride="carousel" >
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    {# CAROUSEL PAGE #}
-                    <div class="carousel-item active">
-                        <div class="carousel-wrapper">
-                            {% for i in 0..3 %}
-                                <div class="">
-                                    <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
-                                        <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                            <div class="class-wrapper-text" >
-                                                <h1>{{ classes[i].name }}</h1>
-                                                <p>{{ classes[i].description }}</p>
-                                                <span class="text-small">Rentre dans le cour</span>
-                                            </div>
-                                            <div class="class-wrapper-img" >
-                                                <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <div class="carousel-item ">
-                        <div class="carousel-wrapper">
-                            {% for i in 4..7 %}
-                                <div class="" >
-                                    <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
-                                        <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                            <div class="class-wrapper-text" >
-                                                <h1>{{ classes[i].name }}</h1>
-                                                <p>{{ classes[i].description }}</p>
-                                                <span class="text-small">Rentre dans le cour</span>
-                                            </div>
-                                            <div class="class-wrapper-img" >
-                                                <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <div class="carousel-item ">
-                        <div class="carousel-wrapper">
-                            {% for i in 8..11 %}
-                                <div >
-                                    <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
-                                        <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
-                                            <div class="class-wrapper-text" >
-                                                <h1>{{ classes[i].name }}</h1>
-                                                <p>{{ classes[i].description }}</p>
-                                                <span class="text-small">Rentre dans le cour</span>
-                                            </div>
-                                            <div class="class-wrapper-img" >
-                                                <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" >
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" >
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+        <div id="carouselIndicators" class="carousel slide my-5" data-bs-ride="carousel" >
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
 
+            <div class="carousel-inner">
+                {# CAROUSEL PAGE #}
+                <div class="carousel-item active">
+                    <div class="carousel-wrapper">
+                        {% for i in 0..3 %}
+                            <div class="">
+                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                        <div class="class-wrapper-text" >
+                                            <h1>{{ classes[i].name }}</h1>
+                                            <p>{{ classes[i].description }}</p>
+                                            <span class="text-small">Rentre dans le cour</span>
+                                        </div>
+                                        <div class="class-wrapper-img" >
+                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+                <div class="carousel-item ">
+                    <div class="carousel-wrapper">
+                        {% for i in 4..7 %}
+                            <div class="" >
+                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                        <div class="class-wrapper-text" >
+                                            <h1>{{ classes[i].name }}</h1>
+                                            <p>{{ classes[i].description }}</p>
+                                            <span class="text-small">Rentre dans le cour</span>
+                                        </div>
+                                        <div class="class-wrapper-img" >
+                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="carousel-item ">
+                    <div class="carousel-wrapper">
+                        {% for i in 8..11 %}
+                            <div >
+                                <a href="{{ path("page_cour", {'name':classes[i].name}) }}">
+                                    <div class="class-wrapper" style="background-color: {{ classes[i].color}}">
+                                        <div class="class-wrapper-text" >
+                                            <h1>{{ classes[i].name }}</h1>
+                                            <p>{{ classes[i].description }}</p>
+                                            <span class="text-small">Rentre dans le cour</span>
+                                        </div>
+                                        <div class="class-wrapper-img" >
+                                            <img src="{{asset('uploads/icons/' ~ classes[i].icon) }}" alt="{{ classes[i].name }}" class="resp img">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     {% endblock carrousel %}
 
@@ -120,8 +118,8 @@
             <p class="text-center"> Choisi le domaine dans lequel tu souhait étudier.</p>
             <p class="text-center mb40"> Nos cours te mèneront des bases complètes aux techniques plus avancées.</p>
 
-            <div class=" cubelearnlesson ">
-                <div class=""  >
+            <div class="cubelearnlesson">
+                <div class="" >
                     <a href="#">
                         <div>
                             <img src="{{ asset('assets/media/icon/iconweb.png') }}" alt="" class="img-fluid img resp" />

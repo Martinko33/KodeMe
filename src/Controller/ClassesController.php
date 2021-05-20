@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Repository\ClassesRepository;
 use App\Repository\SupportRepository;
 use App\Repository\ThemeRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,6 +49,7 @@ class ClassesController extends AbstractController
     /**
      *
      * @Route("/cours/{name}", name="page_cour")
+     * @IsGranted("ROLE_USER")
      */
     public function pageCour($name,
         ClassesRepository $classesRepository,

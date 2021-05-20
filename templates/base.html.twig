@@ -19,28 +19,30 @@
         <ul class="lientop">
                 <li class="responsive box-bar"><a href="{{ path("page_cours") }}">Cours</a></li>
                 <li class="responsive box-bar"><a href="{{ path("construct_page") }}">Evenement</a></li>
-
                 <li class="box-bar1"><a href="{{ path("page_home") }}" class="logo">KodeMe</a></li>
 
+                {#   Affiche si role admin  #}
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="responsive box-bar"><a href="{{ path("page_admin") }}">Admin</a></li>
                     {% else %}
                     <li class="box-bar"></li>
                 {% endif %}
 
+                {#  connexion  #}
                 {% if app.user %}
                     <li class="responsive box-bar"><a href="{{ path("app_logout") }}">{{app.user.firstname}} {{ app.user.name}} <i class="bi bi-box-arrow-in-right fs-2"></i></a></li>
                 {% else %}
                     <li class="responsive box-bar"><a href="{{ path("app_login") }}">Connexion <i class="bi bi-person-circle fs-2"></i></a></li>
                 {% endif %}
         </ul>
-        {#  pour responsive      #}
+
+        {#  pour responsive  #}
         <ul id="hamb">
             <li></li>
             <li></li>
             <li></li>
         </ul>
-        
+        {#  slide burger  #}
         <div class="hamburger">
             <nav class="menu">
                 <header>Menu</header>
@@ -59,10 +61,7 @@
                     {% else %}
                         <li class="respo"><a href="{{ path("app_login") }}">Connexion </a></li>
                     {% endif %}
-
-
                 </ol>
-
             </nav>
         </div>
     </nav>
@@ -72,6 +71,8 @@
 <main>
     {% block search %}
     {% endblock search %}
+
+    {#   Message flash  #}
     <div>
         {% for message in app.flashes('success') %}
             <div class="flash-notice text-center p-2">
@@ -84,7 +85,6 @@
         {% block carrousel %}
         {% endblock carrousel %}
     {% endblock main %}
-
 </main>
 
 
@@ -92,9 +92,15 @@
         <div class="">
             <ul>
                 <li><h3>Contact</h3></li>
-                <li><a href="{{ path("page_home") }}"></a>KodeMe</li>
-                <li><a href="#"></a>+33 7 77 77 77 77</li>
-                <li><a href="#"></a>info@kodeme.fr</li>
+                <li><a href="{{ path("page_home") }}">KodeMe</a></li>
+                <li><a href="tel:+33777777777">+33 7 77 77 77 77</a></li>
+                <li><a href="mailto:info@kodeme.fr">info@kodeme.fr</a></li>
+                <li class="jus-con-bet display-flex">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-github"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                </li>
             </ul>
         </div>
         <div class="">
