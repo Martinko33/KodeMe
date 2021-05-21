@@ -19,19 +19,19 @@ class ClassesRepository extends ServiceEntityRepository
         parent::__construct($registry, Classes::class);
     }
 
-    // je cree ma function quelle est different de find et je la associe avec $search
+    // je crée ma fonction qui est différente de find et je l'associe avec $search
     public function searchByTerm($search)
     {
-        //je cree mon querybuilder pour cree ma roquete
+        //je crée mon querybuilder pour créer ma requête
         $qb = $this->createQueryBuilder('class');
-        // je cree ma roquete select ( presque pareil comme sql)
+        // je crée ma requête select (presque de la même manière que sql)
         $query = $qb-> select('class')
             ->where('class.name LIKE :search')
             ->orWhere('class.description LIKE :search')
-            // setparameter c'est la securite pour input recherche ( fait jamais confiance a utilisateur)
-            // dans la where je mette :search que j'appelle a set parameter 'search' qui contient enfin ma variable $search, du coup avec ca je le mettre pas direct dans ma roquete
+            // setparameter est une sécurité pour input recherche (ne jamais faire confiance a un utilisateur)
+            // dans la where je mets like :search que j'appelle via setparameter 'search' qui contient enfin ma variable $search, du coup avec ca je ne le mets pas directement dans ma requête
             ->setParameter('search', '%'.$search.'%')
-            // getQuery me rasamble tout la roquete
+            // getQuery me rassemble toute la requête
             ->getQuery();
 
 

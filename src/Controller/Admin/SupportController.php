@@ -88,7 +88,7 @@ class SupportController extends AbstractController
 
             $entityManager ->flush();
 
-            $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours étais bien crée');
+            $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours a bien été créé');
 
             return $this->redirectToRoute('display_support');
         }
@@ -157,7 +157,7 @@ class SupportController extends AbstractController
             $entityManager ->persist($support);
             $entityManager ->flush();
 
-            $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours étais bien modifié');
+            $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours a bien été modifié');
 
             return $this->redirectToRoute('display_support');
         }
@@ -181,7 +181,7 @@ class SupportController extends AbstractController
         $entityManager -> flush($support);
 
 
-        $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours étais supprimé');
+        $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours a bien été supprimé');
         return $this->redirectToRoute('display_support');
     }
 

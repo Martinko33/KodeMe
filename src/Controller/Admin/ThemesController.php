@@ -46,7 +46,7 @@ class ThemesController extends AbstractController
             $entityManager ->persist($theme);
             $entityManager ->flush();
 
-            $this->addFlash('success', 'Votre theme '.$theme->getName().' étais bien crée');
+            $this->addFlash('success', 'Votre thème '.$theme->getName().' a bien été créé');
 
             return $this->redirectToRoute('display_themes');
         }
@@ -77,7 +77,7 @@ class ThemesController extends AbstractController
             $entityManager ->persist($theme);
             $entityManager ->flush();
 
-            $this->addFlash('success', 'Votre Théme '.$theme->getName().' étais bien modifie');
+            $this->addFlash('success', 'Votre thème '.$theme->getName().' a bien été modifié');
 
             return $this->redirectToRoute('display_themes');
         }
@@ -100,7 +100,7 @@ class ThemesController extends AbstractController
         $entityManager -> flush($theme);
 
 
-        $this->addFlash('success', 'Votre Théme '.$theme->getName().' étais bien supprime');
+        $this->addFlash('success', 'Votre thème '.$theme->getName().' a bien été supprimé');
         return $this->redirectToRoute('display_themes');
     }
 

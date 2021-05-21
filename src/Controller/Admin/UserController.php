@@ -28,7 +28,7 @@ class UserController extends AbstractController
     /**
      * @Route("/user", name="role")
      */
-    //function d'affichage de mes usagés
+    //fonction d'affichage de mes usagés
     public function roleUser(UserRepository $repository)
     {
         $users = $repository->findAll();
@@ -46,7 +46,7 @@ class UserController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager)
     {
-        // requete pour trouver l'usagé concerné par la modification grace a l'id
+        // requête pour trouver l'usagé concerné par la modification grâce a l'id
         $user = $repository->findOneBy(['id'=>$request->request->get('id')]);
 
         //condition de changement du role
@@ -58,12 +58,12 @@ class UserController extends AbstractController
             $role = array('ROLE_TEACHER');
         }
 
-        //envoi du nouveau role
+        //envoie du nouveau rôle
         $user->setRoles($role);
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $this->addFlash('success','Le User '.$user->getFirstname().' '.$user->getName() .' était bien modifié!');
+        $this->addFlash('success','L utilisateur '.$user->getFirstname().' '.$user->getName() .'a bien été modifié!');
         return $this->redirectToRoute('role');
     }
 
@@ -79,7 +79,7 @@ class UserController extends AbstractController
         $entityManager ->remove($user);
         $entityManager ->flush($user);
 
-        $this->addFlash('success','Le User '.$user->getFirstname().' '.$user->getName() .' était bien supprimé!');
+        $this->addFlash('success','L utilisateur '.$user->getFirstname().' '.$user->getName() .' a bien été supprimé!');
         return $this->redirectToRoute('role');
     }
 

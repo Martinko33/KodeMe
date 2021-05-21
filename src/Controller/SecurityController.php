@@ -18,7 +18,7 @@ class SecurityController extends AbstractController
 //             return $this->redirectToRoute('/');
 //         }
 
-        // recupere l'erreur de connexion s'il y en a une
+        // Je recupère l'erreur de connexion si il y en a une
         $error = $authenticationUtils->getLastAuthenticationError();
         // dernier nom d'utilisateur saisi par l'utilisateur
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -31,7 +31,7 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        $this->addFlash('success', 'Vous étais déconnecté');
+        $this->addFlash('success', 'Vous êtes déconnecté(e)');
 
     }
 }

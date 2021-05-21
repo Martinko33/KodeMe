@@ -12,26 +12,51 @@
 </head>
 <body>
     <header>
-            <h1 class="text-center p-5 text-white header-sidebar">Administration</h1>
+        <nav class="d-flex justify-content-between header-sidebar">
+            <h1 class="text-center p-5 text-white header-sidebar col-10 col-lg-12">Administration</h1>
+            <ul id="hamb-admin">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            {#  slide burger  #}
+            <div class="hamburger">
+                <nav class="menu">
+                    <header>Menu</header>
+                    <ol>
+                        <li class="respo"><a href="{{ path("display_classes") }}" class="">Classes</a></li>
+                        <li class="respo"><a href="{{ path("display_support") }}" class="">Support</a></li>
+                        <li class="respo"><a href="{{ path("role") }}" class="">User</a></li>
+                        <li class="respo"><a href="{{ path("display_themes") }}" class="">Thémes</a></li>
+                        <li class="respo"><a href="#" class="">Evenement</a></li>
+                        <li class="respo"><a href="{{ path("page_admin") }}" class="">Home Admin</a></li>
+                        <li class="respo"><a href="{{ path("page_home") }}" class="">Home</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </nav>
     </header>
 <main>
-    <div>
-        {% for message in app.flashes('success') %}
-            <div class="flash-notice text-center p-2">
-                {{ message }}
-            </div>
-        {% endfor %}
-
-    </div>
-    <div class="sidebar">
-        <a href="{{ path("display_classes") }}" class="link text">Classes</a>
-        <a href="{{ path("display_support") }}" class="link text">Support</a>
-        <a href="{{ path("role") }}" class="link text">User</a>
-        <a href="{{ path("display_themes") }}" class="link text">Thémes</a>
-        <a href="#" class="link text">Evenement</a>
-        <a href="{{ path("page_admin") }}" class="link text">Home Admin</a>
-        <a href="{{ path("page_home") }}" class="link text">Home</a>
-    </div>
+    <section>
+        <div>
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice text-center p-2">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <nav>
+        <div class="sidebar">
+            <a href="{{ path("display_classes") }}" class="link text">Classes</a>
+            <a href="{{ path("display_support") }}" class="link text">Support</a>
+            <a href="{{ path("role") }}" class="link text">User</a>
+            <a href="{{ path("display_themes") }}" class="link text">Thémes</a>
+            <a href="#" class="link text">Evenement</a>
+            <a href="{{ path("page_admin") }}" class="link text">Home Admin</a>
+            <a href="{{ path("page_home") }}" class="link text">Home</a>
+        </div>
+    </nav>
     <div>
         {% block header_admin %}
         {% endblock header_admin %}
@@ -43,7 +68,8 @@
 
 </main>
 <footer></footer>
-{% block script_video %}{% endblock script_video %}
+    <script src="{{ asset('assets/js/admin_script.js') }}"></script>
+    {% block script_video %}{% endblock script_video %}
 
 </body>
 </html>

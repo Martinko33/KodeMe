@@ -12,7 +12,7 @@ a {
 /*SIDEBAR*/
 
 .sidebar{
-    background-color: black;
+    background-color: #4B8F8C;
     max-width:350px;
     height: 200vh;
     float:left;
@@ -38,6 +38,12 @@ a {
     padding: 20px;
     font-size: 20px;
 }
+
+.sidebar a:hover {
+    background-color: #43807e;
+    color: white;
+}
+
 /*.link:hover{*/
 /*    background-color: white;*/
 /*    color: yellow;*/
@@ -75,7 +81,87 @@ table tr{
     width: 100%;
 
 }
+#hamb-admin{
+    margin: 15px 0 0 15px;
+    width:50px;
+    padding:0;
+    cursor:pointer;
+    list-style:none;
+}
 
+#hamb-admin li{
+    height:3px;
+    background-color: white;
+    margin-bottom:10px;
+    width:100%;
+    list-style:none;
+}
 
+.hamburger{
+    display:none;
+    position:absolute;
+    top:10%;
+    right:0;
+    background-color: #2C365E;
+}
 
+.hamburger.show{
+    display:block
+}
 
+.hamburger nav {
+
+    position: relative;
+    width: 220px;
+    margin: 20px;
+}
+
+.hamburger nav ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hamburger nav li {
+    margin: -4px 0 0 0;
+}
+
+.hamburger nav a {
+    display: block;
+    text-decoration: none;
+    background: #4B8F8C;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 1em 1.52em;
+    color: white;
+}
+.hamburger nav a:hover {
+    background-color: #43807e;
+}
+.hamburger nav header {
+    display: block;
+    background: #4B8F8C;
+    border-radius: 4px;
+    border-bottom: 5px solid #FFFFFF;
+    padding: 1em 1.52em;
+    color: white;
+    font-family: Rubik, sans-serif;
+    cursor:pointer;
+}
+
+/* ******* Responsive ******** */
+
+@media screen and (max-width: 992px){
+    .sidebar{
+        display: none;
+    }
+}
+@media screen and (min-width: 992px) {
+    #hamb-admin {
+        display: none;
+    }
+    .hamburger.show{
+        display: none;
+    }
+
+}

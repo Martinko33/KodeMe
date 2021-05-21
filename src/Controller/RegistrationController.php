@@ -24,14 +24,14 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encodage de mot de passe utilisateur
+            // encodage du mot de passe de l'utilisateur
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
-            // chaque nouveau utilisateur enregistrer va avoir role user
+            // chaque nouvel utilisateur enregistré va avoir un rôle user
             $user->setRoles(array('ROLE_USER'));
 
             $entityManager = $this->getDoctrine()->getManager();

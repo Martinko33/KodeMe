@@ -9,3 +9,15 @@
 //         links[id].classList.add('hover')
 //     }, id*750)
 // }
+
+const hambAd = document.querySelector("#hamb-admin");
+const menuMobile = document.querySelector(".hamburger");
+hambAd.addEventListener("click", function(){
+    if(!menuMobile.classList.contains("show")){
+        menuMobile.classList.add('show');
+    }
+    else{
+        menuMobile.classList.remove('show')
+    }
+
+})

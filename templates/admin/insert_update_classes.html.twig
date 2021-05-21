@@ -14,129 +14,129 @@
 {% block main %}
     {{form_start(formClassView)}}
 
-    <div class="container-fluid ">
-        <div class="row justify-content-around mb-5 pt-5 ">
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formClassView.name) }}</h3>
+        <div class="container-fluid ">
+            <div class="row justify-content-around mb-5 pt-5 ">
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formClassView.name) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {# form_errors me sort les error fait par formulaire #}
+                        <div class="bg-danger text-white text-center ">
+                            {{ form_errors(formClassView.name) }}
+                        </div>
+                        <div class="p-0 ">
+                            {{ form_widget(formClassView.name, {'attr': {'class': 'full-width input-border','placeholder': 'Nom de cour'}}) }}
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    {# form_errors me sort les error fait par formulaire #}
-                    <div class="bg-danger text-white text-center ">
-                        {{ form_errors(formClassView.name) }}
+                <div class="col-5">
+                    <div class="row ">
+                        {{ form_errors(formClassView.description) }}
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formClassView.description) }}</h3>
+                        </div>
                     </div>
-                    <div class="p-0 ">
-                        {{ form_widget(formClassView.name, {'attr': {'class': 'full-width input-border','placeholder': 'Nom de cour'}}) }}
+                    <div class="row ">
+                        <div class="p-0 ">
+                            {{ form_widget(formClassView.description, {'attr': {'class': 'full-width input-border','placeholder': 'Description cour'}}) }}
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col-5">
-                <div class="row ">
-                    {{ form_errors(formClassView.description) }}
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formClassView.description) }}</h3>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="p-0 ">
-                        {{ form_widget(formClassView.description, {'attr': {'class': 'full-width input-border','placeholder': 'Description cour'}}) }}
-                    </div>
 
+            <div class="row justify-content-around mb-5">
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formClassView.price) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class=" ">
+                            {{ form_widget(formClassView.price, {'attr': {'class': 'full-width input-border','placeholder': 'Prix'}})  }}
+                        </div>
+                    </div>
                 </div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formClassView.time) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center fs-3 col-10">
+                            {{ form_widget(formClassView.time, {'attr': {'class': 'published-bool full-width all-center', 'id': 'check'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-around mb-5">
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10 text-capitalize">
+                            <h3>{{ form_label(formClassView.icon) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="text-center col-10">
+                            {{ form_widget(formClassView.icon)  }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formClassView.color) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" text-center col-10">
+                            {{ form_widget(formClassView.color) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-around mb-5">
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formClassView.themes) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="text-center col-10">
+                            {{ form_widget(formClassView.themes)  }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {#
+            <div class="row justify-content-around mb-5">
+                <div class="col-5">
+                    <div class="row">
+                        <div class="fw-bold text-center fs-3 col-10">
+                            <h3>{{ form_label(formCategoryView.image) }}</h3>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class=" ">
+                            {{ form_widget(formCategoryView.image)  }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            #}
+
+            <div class="submit-form-article d-flex justify-content-center pb-5">
+                {{ form_widget(formClassView.submit) }}
             </div>
         </div>
-
-        <div class="row justify-content-around mb-5">
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formClassView.price) }}</h3>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class=" ">
-                        {{ form_widget(formClassView.price, {'attr': {'class': 'full-width input-border','placeholder': 'Prix'}})  }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formClassView.time) }}</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="text-center fs-3 col-10">
-                        {{ form_widget(formClassView.time, {'attr': {'class': 'published-bool full-width all-center', 'id': 'check'}}) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-around mb-5">
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10 text-capitalize">
-                        <h3>{{ form_label(formClassView.icon) }}</h3>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="text-center col-10">
-                        {{ form_widget(formClassView.icon)  }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formClassView.color) }}</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class=" text-center col-10">
-                        {{ form_widget(formClassView.color) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-around mb-5">
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formClassView.themes) }}</h3>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="text-center col-10">
-                        {{ form_widget(formClassView.themes)  }}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {#
-        <div class="row justify-content-around mb-5">
-            <div class="col-5">
-                <div class="row">
-                    <div class="fw-bold text-center fs-3 col-10">
-                        <h3>{{ form_label(formCategoryView.image) }}</h3>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class=" ">
-                        {{ form_widget(formCategoryView.image)  }}
-                    </div>
-                </div>
-            </div>
-        </div>
-        #}
-
-        <div class="submit-form-article d-flex justify-content-center pb-5">
-            {{ form_widget(formClassView.submit) }}
-        </div>
-    </div>
     {{ form_end(formClassView) }}
 {% endblock main %}

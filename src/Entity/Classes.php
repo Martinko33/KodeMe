@@ -6,6 +6,7 @@ use App\Repository\ClassesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ClassesRepository::class)
@@ -21,6 +22,9 @@ class Classes
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message = "Il faut écrire un titre."
+     * )
      */
     private $name;
 
@@ -45,18 +49,24 @@ class Classes
     private $icon;
 
     /**
-     * // j'ajoute orphanRemoval pour que quand je supprime classes qui contient supports, je peux les supprime ensemble
+     * // j'ajoute orphanRemoval pour que, quand je supprime classes qui contient supports, je peux les supprimer ensemble
      * @ORM\OneToMany(targetEntity=Support::class, mappedBy="classes", orphanRemoval=true)
      */
     private $supports;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(
+     *     message = "Il faut choisir une couleur."
+     * )
      */
     private $color;
 
     /**
      * @ORM\ManyToOne(targetEntity=Theme::class, inversedBy="classes")
+     * @Assert\NotBlank(
+     *     message = "Il faut choisir un thème."
+     * )
      */
     private $themes;
 

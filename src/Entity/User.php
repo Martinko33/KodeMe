@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="Cet email était déja enregistré")
+ * @UniqueEntity(fields={"email"}, message="Cet email est déja enregistré")
  */
 class User implements UserInterface
 {
@@ -24,7 +24,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(
-     *     message = "Faut écrire ton mail."
+     *     message = "Il faut écrire une adresse email."
      *      )
      */
     private $email;
@@ -40,8 +40,8 @@ class User implements UserInterface
      * @Assert\Length(
      *     min = 6,
      *     max = 50,
-     *     minMessage="Ton mot de passe doit avoir minimal {{ limit }} characteurs",
-     *     maxMessage="Ton mot de passe doit avoir maximal {{ limit}} characteurs"
+     *     minMessage="Votre mot de passe doit contenir au minimum {{ limit }} caractères",
+     *     maxMessage="Votre mot de passe doit contenir au maximum {{ limit}} caractères"
      *  )
      *
      */
@@ -50,12 +50,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotBlank(
-     *     message = "Tu as oublié écrir ton nom."
+     *     message = "Vous avez oublié d'écrire votre nom."
      *     )
      * @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
-     *     message="Ton nom ne peut pas contient la chiffre."
+     *     message="Votre nom ne peut pas contenir de chiffre."
      * )
      */
     private $name;
@@ -65,7 +65,7 @@ class User implements UserInterface
      * @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
-     *     message="Ton prenom ne peut pas contient la chiffre"
+     *     message="Votre prénom ne peut pas contenir de chiffre"
      * )
      */
     private $firstname;
