@@ -57,14 +57,15 @@ class ClassesController extends AbstractController
     {
 //        je bloque entree
         $this->denyAccessUnlessGranted('ROLE_USER', null, "Si vous voulez rentrer dans le cour faut s'enregistrer");
-        $class = $classesRepository ->findBy(["name" =>$name]);
 
-//        $supports = $supportRepository ->findAll();
+        $class = $classesRepository ->findBy(["name" =>$name]);
+        $supports = $supportRepository ->findAll();
 
         return $this->render('class.html.twig',[
             "class" => $class,
-//            "supports" => $supports,
+//          "supports" => $supports,
         ]);
+
     }
 
     /**

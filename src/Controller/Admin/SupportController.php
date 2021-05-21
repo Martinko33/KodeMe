@@ -63,7 +63,6 @@ class SupportController extends AbstractController
 
                 }
                 $support->setImage($newFilename);
-
             }
 
             $videoFile = $formSupport->get('video')->getData();
@@ -89,7 +88,7 @@ class SupportController extends AbstractController
 
             $entityManager ->flush();
 
-            $this->addFlash('success', 'Votre Cour '.$support->getTitre().' etais bien cree');
+            $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours étais bien crée');
 
             return $this->redirectToRoute('display_support');
         }
@@ -107,7 +106,8 @@ class SupportController extends AbstractController
         $id,
         SupportRepository $supportRepository,
         EntityManagerInterface $entityManager,
-        Request $request
+        Request $request,
+        SluggerInterface $slugger
     )
     {
         $support = $supportRepository->find($id);
@@ -157,13 +157,14 @@ class SupportController extends AbstractController
             $entityManager ->persist($support);
             $entityManager ->flush();
 
-            $this->addFlash('success', 'Votre Cour '.$support->getTitre().' etais bien modifie');
+            $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours étais bien modifié');
 
             return $this->redirectToRoute('display_support');
         }
 
         return $this->render('admin/insert_update_support.html.twig',[
             'formSupportView' => $formSupport->createView(),
+            'support'
         ]);
     }
 
@@ -180,7 +181,7 @@ class SupportController extends AbstractController
         $entityManager -> flush($support);
 
 
-        $this->addFlash('success', 'Votre Cour '.$support->getTitre().' etais bien supprime');
+        $this->addFlash('success', 'Votre support '.$support->getTitre().' de cours étais supprimé');
         return $this->redirectToRoute('display_support');
     }
 

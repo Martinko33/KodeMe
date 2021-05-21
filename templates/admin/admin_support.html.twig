@@ -17,8 +17,8 @@
         </div>
 
         <div class="d-none d-lg-block col-lg-7">
-            <h2>Vérifie ton video que tu as ajoute</h2>
-            <video controls class="video_position videoSource">
+            <h2>Vérification de vidéo</h2>
+            <video controls class="video_position videoSource" width="450">
                 <source src="{{ asset('uploads/video/videoplayback-6066ec5ce05d8.mp4') }}" type="video/mp4">
             </video>
         </div>
@@ -54,56 +54,10 @@
                                 </div>
                         {% endif %}
                     {% endfor %}
-
                 </div>
             </div>
         {% endfor %}
-
     </div>
-
-{#    <div class="container">#}
-{#        {% for support in supports %}#}
-{#            {% if support.classes %}#}
-{#                {% if support.classes.name %}#}
-{#                    {% if supportName is not defined or supportName != support.classes.name %}#}
-{#                        <div class="container">#}
-{#                            <div class="row">#}
-{#                                <div class="my-3 fs-1 p-1 text-white" style="background-color: {{ support.classes.color}}">#}
-{#                                    <h2 class="px-4">{{ support.classes.name }}</h2>#}
-{#                                </div>#}
-{#                                {% for classSupport in support.classes.supports %}#}
-{#    #}{#                                {% if support.image %}#}
-{#    #}{#                                    <img src="{{asset('uploads/image/' ~ support.image) }}" alt="{{ support.titre }}" class="image" style="width: 100px" >#}
-{#    #}{#                                {% endif %}#}
-
-{#                                    {% if support.video %}#}
-{#                                            <div class="row justify-content-center">#}
-{#                                                <div class="width80 ">#}
-{#                                                    <div class="linkVideo container-video d-flex align-items-center text-center bg-light mb-2 ">#}
-{#                                                        <a href="{{ asset('uploads/video/' ~ classSupport.video) }}" class="text-decoration-none text-dark ms-3">#}
-{#                                                            <span class="">{{ classSupport.titre }}</span>#}
-{#                                                        </a>#}
-{#                                                        <div class=" d-flex align-items-center ms-auto p-1 me-3 ">#}
-{#                                                            <a href="{{ path("admin_support_update",{"id" :classSupport.id}) }}"><img src="{{ asset('assets/media/icon/updated.png') }}" alt="update" class="width50 me-4 resp"></a>#}
-{#                                                            <a href="{{ path("admin_support_delete",{"id" :classSupport.id}) }}"><img src="{{ asset('assets/media/icon/delete.png') }}" alt="delete" class="width50 resp"></a>#}
-{#                                                        </div>#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                    {% endif %}#}
-{#                                {% endfor %}#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    {% endif %}#}
-{#                    {% set supportName = support.classes.name %}#}
-{#                {% endif %}#}
-{#            {% endif %}#}
-{#        {% endfor %}#}
-
-
-{#    </div>#}
-
-
 
 {% endblock main %}
 

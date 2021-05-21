@@ -18,7 +18,7 @@
     <div class="page-class">
         <div class="production-video">
             <h2></h2>
-            <video controls class="video_position videoSource">
+            <video controls class="video_position videoSource video-resp">
                 <source src="{{ asset('uploads/video/videoplayback-6066ec5ce05d8.mp4') }}" type="video/mp4">
             </video>
         </div>
@@ -26,13 +26,13 @@
             <h2>Choisis tes video</h2>
             {% for class in class %}
                 {% for support in class.supports %}
-{#                    {% if support.video %}#}
+                    {% if support.video %}
                         <div class="linkVideo container-video section-list">
                             <a href="{{ asset('uploads/video/' ~ support.video) }}" >
                                 <span class="black-color">{{ support.titre }}</span>
                             </a>
                         </div>
-{#                    {% endif%}#}
+                    {% endif%}
                 {% endfor %}
             {% endfor %}
         </div>
@@ -101,9 +101,7 @@
 
         <div class="avis">
             <h1>Avis</h1>
-            <div class="feedback center">
-
-            </div>
+            <div class="feedback center"></div>
         </div>
     </section>
 {% endblock main %}
